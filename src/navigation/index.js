@@ -70,7 +70,17 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: BaseColor.darkPrimaryColor,
+        // tabBarActiveTintColor: BaseColor.darkPrimaryColor,
+        tabBarStyle: {
+          height: 60,
+          paddingHorizontal: 5,
+          paddingTop: 0,
+          backgroundColor: "rgba(34,36,40,1)",
+          position: "absolute",
+          borderTopWidth: 0,
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
+        },
       }}
     >
       <BottomTab.Screen

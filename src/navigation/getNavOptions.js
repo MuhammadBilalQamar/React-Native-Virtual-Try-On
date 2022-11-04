@@ -38,6 +38,14 @@ export const getNavigationOptions = (props) => {
 
     case "Cart": {
       navigationOptions = {
+        headerLeft: ({ color }) => (
+          <Entypo
+            name="menu"
+            size={32}
+            color={"white"}
+            style={{ padding: 10 }}
+          />
+        ),
         tabBarIcon: ({ color }) => (
           <AntDesign name="shoppingcart" size={24} color={color} />
         ),
@@ -45,7 +53,7 @@ export const getNavigationOptions = (props) => {
         tabBarOptions: {
           showLabel: true,
         },
-        headerShown: false,
+        // headerShown: false,
       };
       break;
     }
