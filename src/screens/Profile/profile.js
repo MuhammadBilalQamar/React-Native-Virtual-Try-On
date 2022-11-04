@@ -54,7 +54,7 @@ const MyProfile = ({ navigation }) => {
       console.log("error <==>", error);
       setIsLoading(false);
     }
-  }, [navigation, imageUrl]);
+  }, [navigation]);
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -74,7 +74,7 @@ const MyProfile = ({ navigation }) => {
   const uploadImage = async (file) => {
     let response = await fetch(file);
     let blob = await response.blob();
-    const storageRef = ref(storage, user?.userId);
+    const storageRef = ref(storage, `profiles/${user?.userId}`);
     const uploadTask = uploadBytesResumable(storageRef, blob);
     setIsLoading(true);
     uploadTask.on(
@@ -109,10 +109,17 @@ const MyProfile = ({ navigation }) => {
           );
           setIsLoading(false);
           setUploadProgress(0);
-          setImageUrl(imageUrl);
+          fetchUser();
         });
       }
     );
+  };
+
+  const fetchUser = async () => {
+    const newUser = await FirebaseRequests.readUserData(user?.userId);
+    if (newUser) {
+      setUser(newUser);
+    }
   };
 
   const handleLogout = () => {
