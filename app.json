@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "communication",
-    "slug": "communication",
+    "name": "virtualclothing",
+    "slug": "virtualclothing",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
