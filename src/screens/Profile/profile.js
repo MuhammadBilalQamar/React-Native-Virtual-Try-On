@@ -281,7 +281,7 @@ const MyProfile = ({ navigation }) => {
               </TouchableOpacity>
             )}
           </View>
-          <View style={[styles.logoutBtnContainer, { marginTop: "10%" }]}>
+          <View style={[styles.logoutBtnContainer, { marginTop: "5%" }]}>
             <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
               <Feather
                 name="log-out"
