@@ -40,8 +40,8 @@ const {
 
 const Login = ({ isLoading, navigation }) => {
   const [passwordVisible, showpasswordVisible] = useState(false);
-  const [email, setEmail] = useState('bilalqmr1@gmail.com');
-  const [password, setPassword] = useState('123456');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginData, setLoginData] = useState(null);
   const [isFocused, setIsFocused] = useState({
