@@ -18,11 +18,10 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-//FIREBASE REQUEST
+//FIREBASE REQUESTS
 import { FirebaseRequests, writeUserData } from "../../services";
 
 //ICONS
-import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 
 //UTILITIES
@@ -37,6 +36,7 @@ const MyProfile = ({ navigation }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [userName, setUserName] = useState("");
 
+  // this will call first time and fetch current user details and render it in user interface
   useEffect(() => {
     try {
       const unsubscribe = navigation.addListener("focus", async () => {
@@ -71,6 +71,7 @@ const MyProfile = ({ navigation }) => {
     }
   };
 
+  // this function will take image file as a parameter and update that file in firebase storage
   const uploadImage = async (file) => {
     let response = await fetch(file);
     let blob = await response.blob();
@@ -115,6 +116,7 @@ const MyProfile = ({ navigation }) => {
     );
   };
 
+  // this is a reusable function that will fetch the current user data from firebase
   const fetchUser = async () => {
     const newUser = await FirebaseRequests.readUserData(user?.userId);
     if (newUser) {
@@ -122,6 +124,7 @@ const MyProfile = ({ navigation }) => {
     }
   };
 
+  // this is a logout function
   const handleLogout = () => {
     Alert.alert("Are you sure?", "do you want to logout?", [
       {
@@ -137,6 +140,7 @@ const MyProfile = ({ navigation }) => {
     ]);
   };
 
+  // this will remove current user data once user will click on logout button
   const removeLocalUser = async () => {
     try {
       AsyncStorage.getAllKeys()
@@ -158,6 +162,7 @@ const MyProfile = ({ navigation }) => {
     }
   };
 
+  // this will update current user data
   const handleUpdate = async () => {
     if (user?.username != userName) {
       setIsLoading(true);
