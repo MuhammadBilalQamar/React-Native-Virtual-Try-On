@@ -1,5 +1,10 @@
 import * as React from "react";
-import { Entypo, AntDesign, FontAwesome } from "@expo/vector-icons";
+import {
+  Entypo,
+  AntDesign,
+  FontAwesome,
+  FontAwesome5,
+} from "@expo/vector-icons";
 import { BaseColor } from "../config";
 
 export const getNavigationOptions = (props) => {
@@ -17,11 +22,11 @@ export const getNavigationOptions = (props) => {
           />
         ),
         headerRight: ({ color }) => (
-          <AntDesign
-            name="logout"
-            size={22}
+          <FontAwesome5
+            name="user-circle"
+            size={25}
             color={"white"}
-            style={{ padding: 10 }}
+            style={{ padding: 10, marginRight: 10 }}
           />
         ),
         tabBarIcon: ({ color }) => (

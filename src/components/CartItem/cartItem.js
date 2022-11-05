@@ -4,7 +4,12 @@ import QuantityInput from "../QuantityInput/index";
 import styles from "./styles";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function CartItem({ item, isQtyShow }) {
+export default function CartItem({
+  item,
+  isQtyShow,
+  showDeleteBtn,
+  onDeleteClick,
+}) {
   let [count, setCount] = useState(1);
 
   const truncateString = (str, num) => {
@@ -37,14 +42,19 @@ export default function CartItem({ item, isQtyShow }) {
           </Text>
           <View style={{ display: "flex", flexDirection: "row" }}>
             <Text style={styles.price}>{item?.price || ""}</Text>
-            <TouchableOpacity style={styles.deleteBtn}>
-              <AntDesign
-                name="delete"
-                size={24}
-                color="black"
-                style={styles.deleteBtnText}
-              />
-            </TouchableOpacity>
+            {showDeleteBtn && (
+              <TouchableOpacity
+                style={styles.deleteBtn}
+                onPress={() => onDeleteClick(item)}
+              >
+                <AntDesign
+                  name="delete"
+                  size={24}
+                  color="black"
+                  style={styles.deleteBtnText}
+                />
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </View>

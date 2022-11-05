@@ -18,7 +18,7 @@ import { GradientStyle, CartItem } from "@components";
 import { FirebaseRequests, writeUserData } from "@services";
 
 //ICONS
-import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 //UTILITIES
 import { getLocalData } from "@utils";
@@ -45,6 +45,7 @@ const Cart = ({ navigation }) => {
     <>
       <GradientStyle style={parentContainer}>
         <SafeAreaView style={{ flex: 1 }}>
+          {/* ITEMS HEADING */}
           <Text
             style={{
               fontSize: 24,
@@ -54,28 +55,37 @@ const Cart = ({ navigation }) => {
               color: BaseColor.darkPrimaryColor,
             }}
           >
-            Items
+            {PRODUCTS.length || "0"} Items
           </Text>
+
+          {/* CART PRODUCTS LISTING */}
           <ScrollView style={styles.container}>
-            <View style={{ marginBottom: 10 }}>
-              <CartItem item={PRODUCTS[0]} isQtyShow={true} />
-            </View>
-            <View style={{ marginBottom: 10 }}>
-              <CartItem item={PRODUCTS[1]} isQtyShow={true} />
-            </View>
-            <View style={{ marginBottom: 10 }}>
-              <CartItem item={PRODUCTS[2]} isQtyShow={true} />
-            </View>
-            <View style={{ marginBottom: 10 }}>
-              <CartItem item={PRODUCTS[3]} isQtyShow={true} />
-            </View>
-            <View style={{ marginBottom: 10 }}>
-              <CartItem item={PRODUCTS[4]} isQtyShow={true} />
-            </View>
-            <View style={{ marginBottom: 10 }}>
-              <CartItem item={PRODUCTS[5]} isQtyShow={true} />
-            </View>
+            {PRODUCTS.map((item, index) => {
+              return (
+                <View key={index} style={{ marginBottom: 10 }}>
+                  <CartItem
+                    item={item}
+                    isQtyShow={true}
+                    showDeleteBtn={true}
+                    onDeleteClick={(item) => {
+                      alert(JSON.stringify(item));
+                    }}
+                  />
+                </View>
+              );
+            })}
           </ScrollView>
+
+          {/* CHECKOUT BUTTON */}
+          <TouchableOpacity style={styles.checkoutBtn}>
+            <Feather
+              name="log-out"
+              size={24}
+              color="white"
+              style={{ marginRight: 8 }}
+            />
+            <Text style={styles.checkoutTextButton}>Checkout</Text>
+          </TouchableOpacity>
         </SafeAreaView>
       </GradientStyle>
     </>
