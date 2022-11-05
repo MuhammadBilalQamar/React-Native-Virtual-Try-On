@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { SafeAreaView } from "react-native";
 import Navigation from "./src/navigation/index";
+console.ignoredYellowBox = ["Warning: Each", "Warning: Failed"];
 
 const App = () => {
   return (

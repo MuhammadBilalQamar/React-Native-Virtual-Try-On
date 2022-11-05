@@ -83,7 +83,7 @@ const MyProfile = ({ navigation }) => {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
+        setUploadProgress(Math.round(progress) || 0);
         switch (snapshot.state) {
           case "paused":
             console.log("Upload is paused");
