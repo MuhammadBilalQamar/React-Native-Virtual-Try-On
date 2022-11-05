@@ -78,8 +78,8 @@ function BottomTabNavigator() {
           backgroundColor: "rgba(34,36,40,1)",
           position: "absolute",
           borderTopWidth: 0,
-          borderTopLeftRadius: 40,
-          borderTopRightRadius: 40,
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
         },
       }}
     >

@@ -5,14 +5,15 @@ const styles = StyleSheet.create({
   parentContainer: {
     display: "flex",
     flex: 1,
+    marginBottom: 60,
   },
   container: {
-    flex: 1,
-    marginTop: 20,
+    // flex: 1,
+    // marginTop: 20,
   },
   list: {
     paddingHorizontal: 5,
-    backgroundColor: "#E6E6E6",
+    // backgroundColor: "#E6E6E6",
   },
   listContainer: {
     alignItems: "center",

@@ -36,7 +36,7 @@ const Home = ({ navigation }) => {
   return (
     <>
       <GradientStyle style={parentContainer}>
-        <SafeAreaView style={{ flex: 1, marginTop: hp(5) }}>
+        <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.container}>
             <FlatList
               style={styles.list}
