@@ -6,5 +6,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: 1,
   },
+  container: {
+    marginBottom: 70,
+  },
 });
 export default styles;

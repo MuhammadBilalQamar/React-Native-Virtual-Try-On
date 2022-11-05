@@ -1,39 +1,76 @@
+import { BaseColor } from "@config";
 import React, { useState } from "react";
-import { View, Button, Text } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 
-export default function CounterInput() {
-  let [count, setCount] = useState(0);
+export default function QuantityInput() {
+  let [count, setCount] = useState(1);
 
   // this will decrease the quantity
   const incrementCount = () => {
     count = count + 1;
-    setCount(count);
+    if (count > 0) {
+      setCount(count);
+    }
   };
 
   // this will increase the quantity
   const decrementCount = () => {
     count = count - 1;
-    setCount(count);
+    if (count > 0) {
+      setCount(count);
+    }
   };
 
   return (
     <View
       style={{
-        width: "100%",
+        width: "10%",
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
+        borderWidth: 1,
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
+        borderColor: BaseColor.darkPrimaryColor,
+        borderRadius: 10,
       }}
     >
-      <Button onPress={incrementCount}>
-        <Text> + </Text>
-      </Button>
-      <Text>{count}</Text>
-      <Button onPress={decrementCount}>
-        <Text> - </Text>
-      </Button>
+      <TouchableOpacity
+        onPress={incrementCount}
+        style={{
+          width: "60%",
+          height: 30,
+          alignContent: "center",
+          alignItems: "center",
+          justifyContent: "center",
+          borderBottomColor: BaseColor.darkPrimaryColor,
+          borderBottomWidth: 1,
+        }}
+      >
+        <Text style={{ fontWeight: "bold", fontSize: 24 }}> + </Text>
+      </TouchableOpacity>
+      <Text
+        style={{
+          marginTop: 15,
+          marginBottom: 15,
+        }}
+      >
+        {count}
+      </Text>
+      <TouchableOpacity
+        onPress={decrementCount}
+        style={{
+          width: "60%",
+          height: 30,
+          alignContent: "center",
+          alignItems: "center",
+          justifyContent: "center",
+          borderTopColor: BaseColor.darkPrimaryColor,
+          borderTopWidth: 1,
+        }}
+      >
+        <Text style={{ fontWeight: "bold", fontSize: 24 }}> - </Text>
+      </TouchableOpacity>
     </View>
   );
 }

@@ -1,2 +1,2 @@
-import CounterInput from './quantityInput';
-export default CounterInput;
+import QuantityInput from './quantityInput';
+export default QuantityInput;

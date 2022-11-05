@@ -12,7 +12,7 @@ import {
   FlatList,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { GradientStyle } from "@components";
+import { GradientStyle, CartItem } from "@components";
 
 //FIREBASE REQUESTS
 import { FirebaseRequests, writeUserData } from "@services";
@@ -25,7 +25,7 @@ import { getLocalData } from "@utils";
 import { BaseColor, Images } from "@config";
 
 //CONSTANTS
-import { HOME_ITEMS } from "../../constants/constants";
+import { PRODUCTS } from "../../constants/constants";
 
 //STYLES
 import styles from "./cart_styles";
@@ -54,9 +54,28 @@ const Cart = ({ navigation }) => {
               color: BaseColor.darkPrimaryColor,
             }}
           >
-            Cart
+            Items
           </Text>
-          <View style={styles.container}></View>
+          <ScrollView style={styles.container}>
+            <View style={{ marginBottom: 10 }}>
+              <CartItem item={PRODUCTS[0]} isQtyShow={true} />
+            </View>
+            <View style={{ marginBottom: 10 }}>
+              <CartItem item={PRODUCTS[1]} isQtyShow={true} />
+            </View>
+            <View style={{ marginBottom: 10 }}>
+              <CartItem item={PRODUCTS[2]} isQtyShow={true} />
+            </View>
+            <View style={{ marginBottom: 10 }}>
+              <CartItem item={PRODUCTS[3]} isQtyShow={true} />
+            </View>
+            <View style={{ marginBottom: 10 }}>
+              <CartItem item={PRODUCTS[4]} isQtyShow={true} />
+            </View>
+            <View style={{ marginBottom: 10 }}>
+              <CartItem item={PRODUCTS[5]} isQtyShow={true} />
+            </View>
+          </ScrollView>
         </SafeAreaView>
       </GradientStyle>
     </>
