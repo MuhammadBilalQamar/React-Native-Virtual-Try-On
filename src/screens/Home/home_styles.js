@@ -5,99 +5,68 @@ const styles = StyleSheet.create({
   parentContainer: {
     display: "flex",
     flex: 1,
-    marginBottom: 60,
   },
-  container: {
-    // flex: 1,
-    // marginTop: 20,
-  },
-  list: {
-    paddingHorizontal: 5,
-    // backgroundColor: "#E6E6E6",
-  },
-  listContainer: {
-    alignItems: "center",
-  },
-  separator: {
+  cardContent: {
+    paddingTop: 20,
+    marginLeft: 20,
     marginTop: 10,
   },
-  /******** card **************/
+  image: {
+    width: 90,
+    height: 90,
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#ebf0f7",
+  },
+
   card: {
     shadowColor: "#00000021",
     shadowOffset: {
-      width: 2,
+      width: 0,
+      height: 6,
     },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
-    marginVertical: 8,
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+    elevation: 12,
+
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
     backgroundColor: "white",
-    flexBasis: "47%",
-    marginHorizontal: 5,
-  },
-  cardHeader: {
-    paddingVertical: 17,
-    paddingHorizontal: 16,
-    borderTopLeftRadius: 1,
-    borderTopRightRadius: 1,
+    padding: 10,
     flexDirection: "row",
-    justifyContent: "space-between",
+    borderRadius: 10,
   },
-  cardContent: {
-    paddingVertical: 12.5,
-    paddingHorizontal: 16,
+
+  name: {
+    fontSize: 20,
+    flex: 1,
+    // alignSelf: "center",
+    // color: "#3399ff",
+    fontWeight: "bold",
   },
-  cardFooter: {
+  count: {
+    fontSize: 14,
+    flex: 1,
+    alignSelf: "center",
+    color: "#6666ff",
+  },
+  followButton: {
+    marginTop: 10,
+    height: 35,
+    width: 100,
+    // padding: 10,
     flexDirection: "row",
-    justifyContent: "space-between",
-    paddingTop: 12.5,
-    paddingBottom: 25,
-    paddingHorizontal: 16,
-    borderBottomLeftRadius: 1,
-    borderBottomRightRadius: 1,
-  },
-  cardImage: {
-    flex: 1,
-    height: 150,
-    width: null,
-  },
-  /******** card components **************/
-  title: {
-    fontSize: 18,
-    flex: 1,
-  },
-  price: {
-    fontSize: 16,
-    color: "green",
-    marginTop: 5,
-  },
-  buyNow: {
-    color: "purple",
-  },
-  icon: {
-    width: 25,
-    height: 25,
-  },
-  /******** social bar ******************/
-  socialBarContainer: {
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row",
-    flex: 1,
+    borderRadius: 30,
+    backgroundColor: "white",
+    // borderWidth: 1,
+    borderColor: "#dcdcdc",
   },
-  socialBarSection: {
-    justifyContent: "center",
-    flexDirection: "row",
-    flex: 1,
-  },
-  socialBarlabel: {
-    marginLeft: 8,
-    alignSelf: "flex-end",
-    justifyContent: "center",
-  },
-  socialBarButton: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+  followButtonText: {
+    color: "#dcdcdc",
+    fontSize: 12,
   },
 });
 export default styles;

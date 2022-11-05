@@ -1,3 +1,4 @@
+//COMPONENTS
 import {
   Text,
   TouchableOpacity,
@@ -11,95 +12,102 @@ import {
   FlatList,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
 import { GradientStyle } from "@components";
-import { BaseColor, Images } from "../../config";
-import styles from "./home_styles";
-import { PRODUCTS } from "../../constants/constants";
+
+//FIREBASE REQUESTS
+import { FirebaseRequests, writeUserData } from "@services";
 
 //ICONS
 import { AntDesign } from "@expo/vector-icons";
 
+//UTILITIES
+import { getLocalData } from "@utils";
+import { BaseColor, Images } from "@config";
+
+//CONSTANTS
+import { HOME_ITEMS } from "../../constants/constants";
+
+//STYLES
+import styles from "./home_styles";
 const { parentContainer } = styles;
 
 const Home = ({ navigation }) => {
-  const [passwordVisible, showpasswordVisible] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {}, []);
-  const addProductToCart = () => {
-    Alert.alert("Success", "The product has been added to your cart");
+  useEffect(() => {
+    try {
+      const unsubscribe = navigation.addListener("focus", async () => {
+        setIsLoading(true);
+        const uid = await getLocalData("loggedInUseruid");
+        const user = await FirebaseRequests.readUserData(uid);
+        if (user) {
+          setUser(user);
+        }
+        setIsLoading(false);
+      });
+      return unsubscribe;
+    } catch (error) {
+      console.log("error <==>", error);
+      setIsLoading(false);
+    }
+  }, [navigation]);
+
+  const clickEventListener = (item) => {
+    switch (item.name) {
+      case "Store Products":
+        break;
+
+      case "Upload Video":
+        break;
+
+      case "Shopping Cart":
+        navigation.navigate("Cart", {
+          user: user,
+        });
+        break;
+
+      default:
+        break;
+    }
+    // Alert.alert("Message", "Item clicked. " + item.name);
   };
 
   return (
     <>
       <GradientStyle style={parentContainer}>
         <SafeAreaView style={{ flex: 1 }}>
+          <Text
+            style={{
+              fontSize: 24,
+              fontWeight: "bold",
+              marginLeft: 20,
+              marginVertical: 15,
+              color: BaseColor.darkPrimaryColor,
+            }}
+          >
+            Wellcome : {user?.username || "Loading..."}
+          </Text>
           <View style={styles.container}>
             <FlatList
-              style={styles.list}
-              contentContainerStyle={styles.listContainer}
-              data={PRODUCTS}
-              horizontal={false}
-              numColumns={2}
+              style={styles.contentList}
+              data={HOME_ITEMS}
               keyExtractor={(item) => {
                 return item.id;
               }}
-              ItemSeparatorComponent={() => {
-                return <View style={styles.separator} />;
-              }}
-              renderItem={(post) => {
-                const item = post.item;
+              renderItem={({ item }) => {
                 return (
-                  <View style={styles.card}>
-                    <View style={styles.cardHeader}>
-                      <View>
-                        <Text style={styles.title}>{item.title}</Text>
-                        <Text style={styles.price}>{item.price}</Text>
-                      </View>
+                  <TouchableOpacity
+                    style={styles.card}
+                    onPress={() => {
+                      clickEventListener(item);
+                    }}
+                  >
+                    <Image style={styles.image} source={{ uri: item.image }} />
+                    <View style={styles.cardContent}>
+                      <Text style={styles.name}>{item.name}</Text>
                     </View>
-
-                    <Image
-                      style={styles.cardImage}
-                      source={{ uri: item.image }}
-                    />
-
-                    <View style={styles.cardFooter}>
-                      <View style={styles.socialBarContainer}>
-                        <View style={styles.socialBarSection}>
-                          <TouchableOpacity
-                            style={styles.socialBarButton}
-                            onPress={() => addProductToCart()}
-                          >
-                            <Image
-                              style={styles.icon}
-                              source={{
-                                uri: "https://img.icons8.com/nolan/96/3498db/add-shopping-cart.png",
-                              }}
-                            />
-                            <Text
-                              style={[styles.socialBarLabel, styles.buyNow]}
-                            >
-                              Buy Now
-                            </Text>
-                          </TouchableOpacity>
-                        </View>
-                        <View style={styles.socialBarSection}>
-                          <TouchableOpacity style={styles.socialBarButton}>
-                            <Image
-                              style={styles.icon}
-                              source={{
-                                uri: "https://img.icons8.com/color/50/000000/hearts.png",
-                              }}
-                            />
-                            <Text style={styles.socialBarLabel}>25</Text>
-                          </TouchableOpacity>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
+                  </TouchableOpacity>
                 );
               }}
             />

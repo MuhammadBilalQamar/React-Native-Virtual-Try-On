@@ -8,9 +8,9 @@ import {
   SignUp,
   Home,
   MyProfile,
+  Cart,
 } from "@screens";
 import { getNavigationOptions } from "./getNavOptions";
-import { BaseColor } from "../config/index";
 import { GradientStyle } from "@components";
 
 export default function Navigation(props) {
@@ -93,7 +93,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Cart"
-        component={Home}
+        component={Cart}
         options={(props) => {
           return getNavigationOptions({ ...props, theme: "light" });
         }}
@@ -109,21 +109,21 @@ function BottomTabNavigator() {
   );
 }
 
-const HomeStack = createNativeStackNavigator();
+// const HomeStack = createNativeStackNavigator();
 
-function HomeRootNavigator() {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Home"
-        component={Home}
-        //  options={(props) => {
-        //    return getNavigationOptions({ ...props, theme: 'light' });
-        //  }}
-      />
-    </HomeStack.Navigator>
-  );
-}
+// function HomeRootNavigator() {
+//   return (
+//     <HomeStack.Navigator>
+//       <HomeStack.Screen
+//         name="Home"
+//         component={Home}
+//         //  options={(props) => {
+//         //    return getNavigationOptions({ ...props, theme: 'light' });
+//         //  }}
+//       />
+//     </HomeStack.Navigator>
+//   );
+// }
 
 export const navigationRef = React.createRef();
 

@@ -19,14 +19,14 @@ import {
 } from "react-native-responsive-screen";
 
 //FIREBASE REQUESTS
-import { FirebaseRequests, writeUserData } from "../../services";
+import { FirebaseRequests, writeUserData } from "@services";
 
 //ICONS
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 
 //UTILITIES
 import { getLocalData } from "@utils";
-import { BaseColor, storage } from "../../config/index";
+import { BaseColor, storage } from "@config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const MyProfile = ({ navigation }) => {
