@@ -41,6 +41,9 @@ const Cart = ({ navigation }) => {
     } catch (error) {}
   }, [navigation]);
 
+  const handleCheckOut = () => {
+    Alert.alert("Congratulations", "Your order has been successfully palced!");
+  };
   return (
     <>
       <GradientStyle style={parentContainer}>
@@ -77,7 +80,7 @@ const Cart = ({ navigation }) => {
           </ScrollView>
 
           {/* CHECKOUT BUTTON */}
-          <TouchableOpacity style={styles.checkoutBtn}>
+          <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckOut}>
             <Feather
               name="log-out"
               size={24}
