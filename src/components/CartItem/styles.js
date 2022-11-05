@@ -39,5 +39,14 @@ const styles = StyleSheet.create({
     color: "#bb816e",
     fontWeight: "bold",
   },
+  deleteBtn: {
+    marginLeft: 70,
+  },
+  deleteBtnText: {
+    marginTop: 10,
+    fontSize: 22,
+    color: BaseColor.darkPrimaryColor,
+    fontWeight: "bold",
+  },
 });
 export default styles;
