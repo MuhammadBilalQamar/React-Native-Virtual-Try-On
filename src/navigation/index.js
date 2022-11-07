@@ -9,6 +9,7 @@ import {
   Home,
   MyProfile,
   Cart,
+  Products,
 } from "@screens";
 import { getNavigationOptions } from "./getNavOptions";
 import { GradientStyle } from "@components";
@@ -68,7 +69,7 @@ const BottomTab = createBottomTabNavigator();
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="HomeRootNavigator"
       screenOptions={{
         // tabBarActiveTintColor: BaseColor.darkPrimaryColor,
         tabBarStyle: {
@@ -84,8 +85,8 @@ function BottomTabNavigator() {
       }}
     >
       <BottomTab.Screen
-        name="Home"
-        component={Home}
+        name="HomeRootNavigator"
+        component={HomeRootNavigator}
         options={(props) => {
           return getNavigationOptions({ ...props, theme: "light" });
         }}
@@ -109,21 +110,28 @@ function BottomTabNavigator() {
   );
 }
 
-// const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
 
-// function HomeRootNavigator() {
-//   return (
-//     <HomeStack.Navigator>
-//       <HomeStack.Screen
-//         name="Home"
-//         component={Home}
-//         //  options={(props) => {
-//         //    return getNavigationOptions({ ...props, theme: 'light' });
-//         //  }}
-//       />
-//     </HomeStack.Navigator>
-//   );
-// }
+function HomeRootNavigator() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        component={Home}
+        options={(props) => {
+          return getNavigationOptions({ ...props, theme: "light" });
+        }}
+      />
+      <HomeStack.Screen
+        name="Products"
+        component={Products}
+        options={(props) => {
+          return getNavigationOptions({ ...props, theme: "light" });
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+}
 
 export const navigationRef = React.createRef();
 

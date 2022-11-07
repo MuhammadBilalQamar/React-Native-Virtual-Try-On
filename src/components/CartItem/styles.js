@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   price: {
     marginTop: 10,
     fontSize: 18,
-    color: "#bb816e",
+    color: BaseColor.priceColor,
     fontWeight: "bold",
   },
   deleteBtn: {

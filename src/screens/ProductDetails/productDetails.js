@@ -23,14 +23,14 @@ import { Feather } from "@expo/vector-icons";
 import { BaseColor, Images } from "@config";
 
 //STYLES
-import styles from "./cart_styles";
+import styles from "./product_details_styles";
 
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 
 const { parentContainer } = styles;
 
-const Cart = ({ navigation }) => {
+const ProductDetails = ({ navigation }) => {
   const [user, setUser] = useState(null);
   const cartItems = useSelector((state) => state.products.products);
 
@@ -96,4 +96,4 @@ const Cart = ({ navigation }) => {
   );
 };
 
-export default Cart;
+export default ProductDetails;

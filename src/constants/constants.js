@@ -13,6 +13,9 @@ export const PRODUCTS = [
     price: "$ 25.00 USD",
     image:
       "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
   },
   {
     id: 2,
@@ -22,11 +25,17 @@ export const PRODUCTS = [
     price: "$ 10.13 USD",
     image:
       "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
   },
   {
     id: 3,
     title: "Product 3",
     price: "$ 12.12 USD",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     image:
@@ -35,6 +44,9 @@ export const PRODUCTS = [
   {
     id: 4,
     title: "Product 4",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 11.00 USD",
@@ -44,6 +56,9 @@ export const PRODUCTS = [
   {
     id: 5,
     title: "Product 5",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 20.00 USD",
@@ -53,6 +68,9 @@ export const PRODUCTS = [
   {
     id: 6,
     title: "Product 6",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 33.00 USD",
@@ -62,6 +80,9 @@ export const PRODUCTS = [
   {
     id: 7,
     title: "Product 7",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 20.95 USD",
@@ -71,6 +92,9 @@ export const PRODUCTS = [
   {
     id: 8,
     title: "Product 8",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 13.60 USD",
@@ -80,6 +104,9 @@ export const PRODUCTS = [
   {
     id: 9,
     title: "Product 9",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 15.30 USD",
@@ -89,6 +116,9 @@ export const PRODUCTS = [
   {
     id: 9,
     title: "Product 10",
+    sizes: ["SM", "MD", "LG"],
+    inStock: true,
+    availableQty: 1,
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 21.30 USD",

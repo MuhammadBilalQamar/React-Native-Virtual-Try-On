@@ -11,8 +11,9 @@ export const getNavigationOptions = (props) => {
   let navigationOptions = {};
   const { route, navigation, theme, drawerToggleRef } = props;
   switch (route.name) {
-    case "Home": {
+    case "HomeRootNavigator": {
       navigationOptions = {
+        title: "Home",
         headerLeft: ({ color }) => (
           <Entypo
             name="menu"
@@ -37,6 +38,66 @@ export const getNavigationOptions = (props) => {
           showLabel: true,
         },
         // headerShown: false,
+      };
+      break;
+    }
+
+    case "Home": {
+      navigationOptions = {
+        headerLeft: ({ color }) => (
+          <Entypo
+            name="menu"
+            size={32}
+            color={"white"}
+            style={{ padding: 10 }}
+          />
+        ),
+        headerRight: ({ color }) => (
+          <FontAwesome5
+            name="user-circle"
+            size={25}
+            color={"white"}
+            style={{ padding: 10, marginRight: 10 }}
+          />
+        ),
+        tabBarIcon: ({ color }) => (
+          <AntDesign name="home" size={24} color={color} />
+        ),
+        tabBarShowLabel: false,
+        tabBarOptions: {
+          showLabel: true,
+        },
+        headerShown: false,
+      };
+      break;
+    }
+
+    case "Products": {
+      navigationOptions = {
+        headerLeft: ({ color }) => (
+          <Entypo
+            name="menu"
+            size={32}
+            color={"white"}
+            style={{ padding: 10 }}
+          />
+        ),
+        headerRight: ({ color }) => (
+          <FontAwesome5
+            name="user-circle"
+            size={25}
+            color={"white"}
+            style={{ padding: 10, marginRight: 10 }}
+          />
+        ),
+        tabBarIcon: ({ color }) => (
+          <AntDesign name="home" size={24} color={color} />
+        ),
+        tabBarShowLabel: false,
+        tabBarOptions: {
+          showLabel: true,
+        },
+        headerShown: false,
       };
       break;
     }

@@ -29,6 +29,7 @@ const Home = ({ navigation }) => {
   const clickEventListener = (item) => {
     switch (item.name) {
       case "Store Products":
+        navigation.navigate("Products");
         break;
       case "Upload Video":
         break;

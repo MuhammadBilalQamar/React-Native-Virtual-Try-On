@@ -5,10 +5,14 @@ import { createStore, combineReducers } from "redux";
 
 // REDUCERS
 import user from "./reducers/user/reducer";
+import products from "./reducers/products/reducer";
+import cart from "./reducers/cart/reducer";
 
 // COMBINING ALL REDUCERS
 const combinedReducer = combineReducers({
   user,
+  products,
+  cart,
 });
 
 const persistConfig = {
