@@ -17,8 +17,7 @@ const SplashScreen = ({ navigation }) => {
     getLocalData("loggedInUseruid").then((token) => {
       if (token) {
         setTimeout(() => {
-          setIsLoggedIn(true);
-          navigation.navigate("Home");
+          navigation.navigate("InitailDashboard");
         }, 1500);
       } else {
         setTimeout(() => {
@@ -29,7 +28,7 @@ const SplashScreen = ({ navigation }) => {
   }, [navigation]);
 
   if (isLoggedIn) {
-    navigation.navigate("Home");
+    navigation.navigate("InitailDashboard");
   }
 
   return (

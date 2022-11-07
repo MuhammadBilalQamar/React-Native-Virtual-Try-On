@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Keyboard, PermissionsAndroid, AsyncStorage } from 'react-native';
+import { Keyboard, PermissionsAndroid } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 var equal = require('deep-equal');
 

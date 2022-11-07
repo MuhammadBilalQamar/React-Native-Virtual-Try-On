@@ -97,7 +97,7 @@ const Login = ({ isLoading, navigation }) => {
         const uid = user.uid;
         if (uid) {
           setLocalData('loggedInUseruid', uid);
-          navigation.navigate('Home');
+          navigation.navigate('InitailDashboard');
         }
         setLoginLoading(false);
       })

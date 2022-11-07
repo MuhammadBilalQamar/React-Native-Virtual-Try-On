@@ -50,7 +50,7 @@ function RootNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Home"
+        name="InitailDashboard"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
       />

@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
-  AsyncStorage,
   Pressable,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
 import { FullScreenLoader, GradientStyle } from "@components";
 import * as ImagePicker from "expo-image-picker";

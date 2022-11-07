@@ -5,7 +5,6 @@ import {
   Alert,
   View,
   SafeAreaView,
-  AsyncStorage,
   StyleSheet,
   Image,
   ScrollView,
