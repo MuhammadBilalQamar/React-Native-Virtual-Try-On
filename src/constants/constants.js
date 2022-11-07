@@ -24,7 +24,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 10.13 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://i.pinimg.com/474x/21/89/6e/21896e0a5c4e5058af26a46af6ffc4b5.jpg",
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
@@ -39,7 +39,7 @@ export const PRODUCTS = [
     decription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://static.hopscotch.in/fstatic/product/202207/5ff9fee0-8605-45e5-858b-4f9939403214_large.jpg?version=1657528328882&tr=w-480,c-at_max,n-normal",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 11.00 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://static.hopscotch.in/fstatic/product/202205/426a06c4-4413-4883-b0c5-39ea2b500def_large.jpg?version=1653388747639&tr=w-480,c-at_max,n-normal",
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 20.00 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/698/assets/220700_96_M7663_Boys_DP_Tees.jpg",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 33.00 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://static.hopscotch.in/fstatic/product/202207/9cfe7fa0-5a1d-4323-b71f-3553a49a2666_large.jpg?version=1657528293520&tr=w-480,c-at_max,n-normal",
   },
   {
     id: 7,
@@ -87,7 +87,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 20.95 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/698/assets/220700_96_M7663_Boys_DP_Pajamas.jpg",
   },
   {
     id: 8,
@@ -99,7 +99,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 13.60 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://m.media-amazon.com/images/I/41CrbVRse8L.jpg",
   },
   {
     id: 9,
@@ -111,7 +111,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 15.30 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGhRZqP7DSu3NjJIl9iWn6-MslpLosv9s9LQ&usqp=CAU",
   },
   {
     id: 9,
@@ -123,7 +123,7 @@ export const PRODUCTS = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     price: "$ 21.30 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYCI2WNv_ELXcjM92sShZ25-VcrKkxTshBA&usqp=CAU",
   },
 ];
 
