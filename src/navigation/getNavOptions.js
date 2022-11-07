@@ -1,9 +1,11 @@
 import * as React from "react";
+import { TouchableOpacity } from "react-native";
 import {
   Entypo,
   AntDesign,
   FontAwesome,
   FontAwesome5,
+  Ionicons,
 } from "@expo/vector-icons";
 import { BaseColor } from "../config";
 
@@ -76,12 +78,14 @@ export const getNavigationOptions = (props) => {
       navigationOptions = {
         title: "Products",
         headerLeft: ({ color }) => (
-          <Entypo
-            name="menu"
-            size={32}
-            color={"white"}
-            style={{ padding: 10 }}
-          />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="ios-return-up-back"
+              size={32}
+              color={"white"}
+              style={{ padding: 10 }}
+            />
+          </TouchableOpacity>
         ),
         headerRight: ({ color }) => (
           <FontAwesome5
@@ -107,12 +111,14 @@ export const getNavigationOptions = (props) => {
       navigationOptions = {
         title: "Details",
         headerLeft: ({ color }) => (
-          <Entypo
-            name="menu"
-            size={32}
-            color={"white"}
-            style={{ padding: 10 }}
-          />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="ios-return-up-back"
+              size={32}
+              color={"white"}
+              style={{ padding: 10 }}
+            />
+          </TouchableOpacity>
         ),
         headerRight: ({ color }) => (
           <FontAwesome5
@@ -138,12 +144,14 @@ export const getNavigationOptions = (props) => {
       navigationOptions = {
         title: "3D Avartar",
         headerLeft: ({ color }) => (
-          <Entypo
-            name="menu"
-            size={32}
-            color={"white"}
-            style={{ padding: 10 }}
-          />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="ios-return-up-back"
+              size={32}
+              color={"white"}
+              style={{ padding: 10 }}
+            />
+          </TouchableOpacity>
         ),
         headerRight: ({ color }) => (
           <FontAwesome5
