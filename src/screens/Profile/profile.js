@@ -27,7 +27,7 @@ import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import { BaseColor, storage } from "@config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-//REDUX
+// REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { logoutUser, saveUser } from "@redux/reducers/user/action";
 import { useDispatch, useSelector } from "react-redux";
 

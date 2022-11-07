@@ -11,6 +11,7 @@ import {
   Cart,
   Products,
   ProductDetails,
+  ThreeDAvartar,
 } from "@screens";
 import { getNavigationOptions } from "./getNavOptions";
 import { GradientStyle } from "@components";
@@ -133,6 +134,13 @@ function HomeRootNavigator() {
       <HomeStack.Screen
         name="ProductDetails"
         component={ProductDetails}
+        options={(props) => {
+          return getNavigationOptions({ ...props, theme: "light" });
+        }}
+      />
+      <HomeStack.Screen
+        name="ThreeDAvartar"
+        component={ThreeDAvartar}
         options={(props) => {
           return getNavigationOptions({ ...props, theme: "light" });
         }}

@@ -5,38 +5,33 @@ import {
   Alert,
   View,
   SafeAreaView,
-  StyleSheet,
-  Image,
   ScrollView,
-  FlatList,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { GradientStyle, CartItem } from "@components";
-
-//FIREBASE REQUESTS
-import { FirebaseRequests, writeUserData } from "@services";
 
 //ICONS
 import { Feather } from "@expo/vector-icons";
 
 //UTILITIES
-import { BaseColor, Images } from "@config";
+import { BaseColor } from "@config";
 import { removeObjectFromArray } from "@utils";
 
 //STYLES
 import styles from "./cart_styles";
+const { parentContainer } = styles;
 
-//REDUX
+//REDUX FOR DATA MANAGEMENT
 import { useSelector, useDispatch } from "react-redux";
 import { addCartItem } from "@redux/reducers/cart/action";
 
-const { parentContainer } = styles;
-
+// the cart component is starts from there
 const Cart = ({ navigation }) => {
   const [isLoading, setILoading] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
 
+  // this is will on first time render of the screen it will make the loading flase
   useEffect(() => {
     try {
       const unsubscribe = navigation.addListener("focus", async () => {
@@ -46,11 +41,13 @@ const Cart = ({ navigation }) => {
     } catch (error) {}
   }, [navigation, isLoading]);
 
+  // this function will all when user clicks on checkout button
   const handleCheckOut = () => {
     dispatch(addCartItem([]));
-    Alert.alert("Congratulations", "Your order has been successfully palced!");
+    Alert.alert("Congratulations", "Your order has been successfully placed!");
   };
 
+  // this function will delete the item from cart
   const handleDelete = (product) => {
     const { id } = product;
     Alert.alert(
@@ -74,6 +71,7 @@ const Cart = ({ navigation }) => {
     );
   };
 
+  // this is the UI renderation
   return (
     <>
       <GradientStyle style={parentContainer}>

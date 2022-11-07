@@ -20,7 +20,7 @@ import { HOME_ITEMS } from "@constants/constants";
 import styles from "./home_styles";
 const { parentContainer } = styles;
 
-//REDUX
+// REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { useSelector } from "react-redux";
 
 const Home = ({ navigation }) => {
@@ -32,6 +32,7 @@ const Home = ({ navigation }) => {
         navigation.navigate("Products");
         break;
       case "Upload Video":
+        navigation.navigate("ThreeDAvartar");
         break;
       case "Shopping Cart":
         navigation.navigate("Cart");

@@ -25,7 +25,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { FirebaseRequests } from "@services";
 
-//REDUX
+// REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { saveUser } from "@redux/reducers/user/action";
 import { useDispatch } from "react-redux";
 

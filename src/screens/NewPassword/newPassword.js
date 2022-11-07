@@ -185,7 +185,7 @@ const NewPassword = ({route, navigation}) => {
                   onBlur={() => handleInputBlur('newPasswordInput')}
                 />
               </View>
-              <View style={imgContainer}>
+              {/* <View style={imgContainer}>
                 {newpassword.length > 0 && (
                   <TouchableWithoutFeedback onPress={handlePassword}>
                     <Image
@@ -195,7 +195,7 @@ const NewPassword = ({route, navigation}) => {
                     />
                   </TouchableWithoutFeedback>
                 )}
-              </View>
+              </View> */}
             </View>
 
             <View

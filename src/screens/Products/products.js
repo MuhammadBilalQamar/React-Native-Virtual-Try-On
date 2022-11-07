@@ -25,7 +25,7 @@ import { BaseColor, Images } from "@config";
 //STYLES
 import styles from "./product_styles";
 
-//REDUX
+// REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { useSelector, useDispatch } from "react-redux";
 
 const { parentContainer } = styles;

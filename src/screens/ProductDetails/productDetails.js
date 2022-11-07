@@ -26,7 +26,7 @@ import { removeObjectFromArray } from "@utils";
 //STYLES
 import styles from "./product_details_styles";
 
-//REDUX
+// REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { useSelector, useDispatch } from "react-redux";
 import { addCartItem } from "@redux/reducers/cart/action";
 
