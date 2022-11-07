@@ -6,6 +6,7 @@ import Home from "./Home";
 import MyProfile from "./Profile";
 import Cart from "./Cart";
 import Products from "./Products/products";
+import ProductDetails from "./ProductDetails";
 
 export {
   SplashScreen,
@@ -16,4 +17,5 @@ export {
   MyProfile,
   Cart,
   Products,
+  ProductDetails,
 };

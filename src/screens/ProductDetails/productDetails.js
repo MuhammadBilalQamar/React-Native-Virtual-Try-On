@@ -30,9 +30,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 const { parentContainer } = styles;
 
-const ProductDetails = ({ navigation }) => {
-  const [user, setUser] = useState(null);
-  const cartItems = useSelector((state) => state.products.products);
+const ProductDetails = ({ navigation, route }) => {
+  let [selectedSize, setSelectedSize] = useState("S");
+  const products = useSelector((state) => state.products.products);
+  const selectedProduct = route?.params?.product || null;
 
   useEffect(() => {
     try {
@@ -41,55 +42,85 @@ const ProductDetails = ({ navigation }) => {
     } catch (error) {}
   }, [navigation]);
 
-  const handleCheckOut = () => {
-    Alert.alert("Congratulations", "Your order has been successfully palced!");
-  };
   return (
     <>
       <GradientStyle style={parentContainer}>
         <SafeAreaView style={{ flex: 1 }}>
-          {/* ITEMS HEADING */}
-          <Text
-            style={{
-              fontSize: 24,
-              fontWeight: "bold",
-              marginLeft: 20,
-              marginVertical: 15,
-              color: BaseColor.darkPrimaryColor,
-            }}
-          >
-            {cartItems?.length || "0"} Items
-          </Text>
-
-          {/* CART PRODUCTS LISTING */}
-          <ScrollView style={styles.container}>
-            {cartItems &&
-              cartItems.map((item, index) => {
-                return (
-                  <View key={index} style={{ marginBottom: 10 }}>
-                    <CartItem
-                      item={item}
-                      isQtyShow={true}
-                      showDeleteBtn={true}
-                      onDeleteClick={(item) => {
-                        alert(JSON.stringify(item));
-                      }}
-                    />
-                  </View>
-                );
-              })}
-          </ScrollView>
-
-          {/* CHECKOUT BUTTON */}
-          <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckOut}>
-            <Feather
-              name="log-out"
-              size={24}
-              color="white"
-              style={{ marginRight: 8 }}
-            />
-            <Text style={styles.checkoutTextButton}>Checkout</Text>
-          </TouchableOpacity>
+          <View style={styles.container}>
+            <ScrollView>
+              <View style={{ alignItems: "center", marginHorizontal: 30 }}>
+                <Image
+                  style={styles.productImg}
+                  source={{ uri: selectedProduct?.image }}
+                />
+                <Text style={styles.name}>{selectedProduct?.title}</Text>
+                <Text style={styles.price}>{selectedProduct?.price}</Text>
+                <Text style={styles.description}>
+                  {selectedProduct?.decription}
+                </Text>
+              </View>
+              <View style={styles.starContainer}>
+                <Image
+                  style={styles.star}
+                  source={{
+                    uri: "https://img.icons8.com/color/40/000000/star.png",
+                  }}
+                />
+                <Image
+                  style={styles.star}
+                  source={{
+                    uri: "https://img.icons8.com/color/40/000000/star.png",
+                  }}
+                />
+                <Image
+                  style={styles.star}
+                  source={{
+                    uri: "https://img.icons8.com/color/40/000000/star.png",
+                  }}
+                />
+                <Image
+                  style={styles.star}
+                  source={{
+                    uri: "https://img.icons8.com/color/40/000000/star.png",
+                  }}
+                />
+                <Image
+                  style={styles.star}
+                  source={{
+                    uri: "https://img.icons8.com/color/40/000000/star.png",
+                  }}
+                />
+              </View>
+              <View style={styles.contentSize}>
+                {selectedProduct?.sizes?.map((item, index) => {
+                  return (
+                    <TouchableOpacity
+                      key={index}
+                      style={[
+                        styles.btnSize,
+                        {
+                          backgroundColor:
+                            item === selectedSize ? "red" : "transparent",
+                        },
+                      ]}
+                      onPress={() => setSelectedSize(item)}
+                    >
+                      <Text>{item}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+              <View style={styles.separator}></View>
+              <View style={styles.addToCarContainer}>
+                <TouchableOpacity
+                  style={styles.shareButton}
+                  // onPress={() => this.clickEventListener()}
+                >
+                  <Text style={styles.shareButtonText}>Add To Cart</Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </View>
         </SafeAreaView>
       </GradientStyle>
     </>

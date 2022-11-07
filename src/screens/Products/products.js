@@ -32,6 +32,7 @@ const { parentContainer } = styles;
 
 const Products = ({ navigation }) => {
   const products = useSelector((state) => state.products.products);
+  // const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     try {
@@ -40,8 +41,13 @@ const Products = ({ navigation }) => {
     } catch (error) {}
   }, [navigation]);
 
-  const addProductToCart = () => {
-    Alert.alert("Success", "The product has been added to your cart");
+  const viewProductDetails = (item) => {
+    const { id } = item;
+    navigation.navigate("ProductDetails", {
+      id,
+      product: item,
+    });
+    // Alert.alert("Success", "The product has been added to your cart");
   };
 
   return (
@@ -82,7 +88,7 @@ const Products = ({ navigation }) => {
                         <View style={styles.socialBarSection}>
                           <TouchableOpacity
                             style={styles.socialBarButton}
-                            // onPress={() => this.addProductToCart()}
+                            onPress={() => viewProductDetails(item)}
                           >
                             <Ionicons
                               name="ios-eye-outline"

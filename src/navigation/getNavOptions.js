@@ -37,7 +37,7 @@ export const getNavigationOptions = (props) => {
         tabBarOptions: {
           showLabel: true,
         },
-        // headerShown: false,
+        headerShown: false,
       };
       break;
     }
@@ -67,13 +67,14 @@ export const getNavigationOptions = (props) => {
         tabBarOptions: {
           showLabel: true,
         },
-        headerShown: false,
+        // headerShown: false,
       };
       break;
     }
 
     case "Products": {
       navigationOptions = {
+        title: "Products",
         headerLeft: ({ color }) => (
           <Entypo
             name="menu"
@@ -97,7 +98,38 @@ export const getNavigationOptions = (props) => {
         tabBarOptions: {
           showLabel: true,
         },
-        headerShown: false,
+        // headerShown: false,
+      };
+      break;
+    }
+
+    case "ProductDetails": {
+      navigationOptions = {
+        title: "Details",
+        headerLeft: ({ color }) => (
+          <Entypo
+            name="menu"
+            size={32}
+            color={"white"}
+            style={{ padding: 10 }}
+          />
+        ),
+        headerRight: ({ color }) => (
+          <FontAwesome5
+            name="user-circle"
+            size={25}
+            color={"white"}
+            style={{ padding: 10, marginRight: 10 }}
+          />
+        ),
+        tabBarIcon: ({ color }) => (
+          <AntDesign name="home" size={24} color={color} />
+        ),
+        tabBarShowLabel: false,
+        tabBarOptions: {
+          showLabel: true,
+        },
+        // headerShown: false,
       };
       break;
     }

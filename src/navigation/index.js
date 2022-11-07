@@ -10,6 +10,7 @@ import {
   MyProfile,
   Cart,
   Products,
+  ProductDetails,
 } from "@screens";
 import { getNavigationOptions } from "./getNavOptions";
 import { GradientStyle } from "@components";
@@ -125,6 +126,13 @@ function HomeRootNavigator() {
       <HomeStack.Screen
         name="Products"
         component={Products}
+        options={(props) => {
+          return getNavigationOptions({ ...props, theme: "light" });
+        }}
+      />
+      <HomeStack.Screen
+        name="ProductDetails"
+        component={ProductDetails}
         options={(props) => {
           return getNavigationOptions({ ...props, theme: "light" });
         }}

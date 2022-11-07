@@ -13,7 +13,7 @@ export const PRODUCTS = [
     price: "$ 25.00 USD",
     image:
       "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
   },
@@ -25,7 +25,7 @@ export const PRODUCTS = [
     price: "$ 10.13 USD",
     image:
       "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
   },
@@ -33,7 +33,7 @@ export const PRODUCTS = [
     id: 3,
     title: "Product 3",
     price: "$ 12.12 USD",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -44,7 +44,7 @@ export const PRODUCTS = [
   {
     id: 4,
     title: "Product 4",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -56,7 +56,7 @@ export const PRODUCTS = [
   {
     id: 5,
     title: "Product 5",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -68,7 +68,7 @@ export const PRODUCTS = [
   {
     id: 6,
     title: "Product 6",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -80,7 +80,7 @@ export const PRODUCTS = [
   {
     id: 7,
     title: "Product 7",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -92,7 +92,7 @@ export const PRODUCTS = [
   {
     id: 8,
     title: "Product 8",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -104,7 +104,7 @@ export const PRODUCTS = [
   {
     id: 9,
     title: "Product 9",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
@@ -116,7 +116,7 @@ export const PRODUCTS = [
   {
     id: 9,
     title: "Product 10",
-    sizes: ["SM", "MD", "LG"],
+    sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
     decription:
