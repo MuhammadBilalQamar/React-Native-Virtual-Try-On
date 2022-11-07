@@ -10,8 +10,6 @@ export default function CartItem({
   showDeleteBtn,
   onDeleteClick,
 }) {
-  let [count, setCount] = useState(1);
-
   const truncateString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + "...";
@@ -36,12 +34,22 @@ export default function CartItem({
       <View style={styles.card}>
         <Image style={styles.image} source={{ uri: item?.image || "" }} />
         <View style={styles.cardContent}>
-          <Text style={styles.name}>{item?.title || ""}</Text>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <Text style={styles.name}>
+              {truncateString(item?.title, 9) || ""}
+            </Text>
+            <TouchableOpacity style={styles.btnSize}>
+              <Text style={{ color: "white", fontWeight: "bold" }}>
+                {item?.selectedSize}
+              </Text>
+            </TouchableOpacity>
+          </View>
           <Text style={styles.decription}>
             {truncateString(item?.decription, 50) || ""}
           </Text>
           <View style={{ display: "flex", flexDirection: "row" }}>
             <Text style={styles.price}>{item?.price || ""}</Text>
+
             {showDeleteBtn && (
               <TouchableOpacity
                 style={styles.deleteBtn}

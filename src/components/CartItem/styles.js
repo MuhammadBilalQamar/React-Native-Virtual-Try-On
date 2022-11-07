@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 100,
-    height: 100,
+    height: 110,
     borderRadius: 20,
     borderWidth: 2,
     borderColor: "#ebf0f7",
@@ -47,6 +47,20 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: BaseColor.darkPrimaryColor,
     fontWeight: "bold",
+  },
+  btnSize: {
+    height: 25,
+    width: 25,
+    borderRadius: 15,
+    marginLeft: 80,
+    marginBottom: 5,
+    borderColor: "#778899",
+    borderWidth: 1,
+    backgroundColor: "green",
+    // marginHorizontal: 3,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 export default styles;
