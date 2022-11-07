@@ -6,23 +6,28 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-} from 'react-native';
-import React, { useEffect, useMemo, useState } from 'react';
-import { getLocalData, setLocalData, useKeyPad } from '../../utils';
+} from "react-native";
+import React, { useMemo, useState } from "react";
+import { useKeyPad } from "@utils";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
-import { CustomLoader, GradientStyle } from '@components';
-import { BaseColor, Images, auth } from '@config';
-import styles from './login_styles';
+} from "react-native-responsive-screen";
+import { CustomLoader, GradientStyle } from "@components";
+import { BaseColor, Images, auth } from "@config";
+import styles from "./login_styles";
 
 //ICONS
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseRequests } from "@services";
+
+//REDUX
+import { saveUser } from "@redux/reducers/user/action";
+import { useDispatch } from "react-redux";
 
 const {
   parentContainer,
@@ -33,55 +38,24 @@ const {
   inputContainer,
   iconContainer,
   imgContainer,
-  buttonContainer,
   loginBtn,
 } = styles;
 
-
-const Login = ({ isLoading, navigation }) => {
+const Login = ({ navigation }) => {
   const [passwordVisible, showpasswordVisible] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("n@gmail.com");
+  const [password, setPassword] = useState("123456");
   const [loginLoading, setLoginLoading] = useState(false);
-  const [loginData, setLoginData] = useState(null);
   const [isFocused, setIsFocused] = useState({
     emailInput: false,
     passwordInput: false,
   });
+  const dispatch = useDispatch();
 
   const keyPad = useKeyPad();
 
-  useEffect(() => {
-    // retrieveuser()
-    // if (LoginData?.login?.accessToken) {
-    //   try {
-    //     navigation.navigate('HomeScreen', {
-    //       isAlreadyLoggedIn: false,
-    //     });
-    //     setLocalData('logindata', LoginData?.login?.accessToken);
-    //     setLocalData('userName', email);
-    //     setLocalData('passWord', password);
-    //   } catch (storageError) {
-    //   }
-    // }
-
-  }, [loginData]);
-
-  // const retrieveuser = () => {
-  //   try {
-  //     getLocalData('loggedInUseruid')
-  //       .then((res) => {
-  //         console.log("res---", res)
-  //       }).catch(err => {
-  //         console.log("error---", err)
-  //       });
-  //   } catch (error) {
-  //     console.log("error---", error)
-
-  //   }
-  // }
   const handlePress = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate("SignUp");
   };
 
   const handleSearch = () => {
@@ -91,13 +65,17 @@ const Login = ({ isLoading, navigation }) => {
   const handleLogin = async () => {
     setLoginLoading(true);
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
+      .then(async (userCredential) => {
+        // Signed in
         const user = userCredential.user;
         const uid = user.uid;
         if (uid) {
-          setLocalData('loggedInUseruid', uid);
-          navigation.navigate('InitailDashboard');
+          const user = await FirebaseRequests.readUserData(uid);
+          if (user) {
+            // setLocalData("loggedInUseruid", uid);
+            dispatch(saveUser(user));
+            navigation.navigate("InitailDashboard");
+          }
         }
         setLoginLoading(false);
       })
@@ -131,24 +109,27 @@ const Login = ({ isLoading, navigation }) => {
   return (
     <>
       <GradientStyle style={parentContainer}>
-        <View style={{ flex: 1.5, flexDirection: 'row', marginTop: hp(1) }}>
+        <View style={{ flex: 1.5, flexDirection: "row", marginTop: hp(1) }}>
           <View
             style={{
               flex: 1.5,
-              justifyContent: 'center',
-              alignItems: 'flex-end',
-            }}>
+              justifyContent: "center",
+              alignItems: "flex-end",
+            }}
+          >
             <Image source={Images.neurogleeLogoIconNav} style={devicesStyle} />
           </View>
           <View
-            style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
+            style={{ flex: 8, justifyContent: "center", alignItems: "center" }}
+          >
             <Text
               style={{
                 fontSize: 20,
                 marginRight: wp(19),
                 color: BaseColor.navyBlue,
-                fontWeight: 'bold',
-              }}>
+                fontWeight: "bold",
+              }}
+            >
               Login
             </Text>
           </View>
@@ -157,15 +138,17 @@ const Login = ({ isLoading, navigation }) => {
           style={{
             //backgroundColor: 'green',
             flex: 8,
-          }}>
+          }}
+        >
           <View style={{ flex: 0.35 }} />
           <View style={{ flex: 0.7 }}>
             <View
               style={{
                 flex: 0.4,
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-              }}>
+                justifyContent: "flex-end",
+                alignItems: "center",
+              }}
+            >
               <Text style={{ fontSize: 18, color: BaseColor.navyBlue }}>
                 You can login with provided
               </Text>
@@ -173,9 +156,10 @@ const Login = ({ isLoading, navigation }) => {
             <View
               style={{
                 flex: 0.4,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Text style={{ fontSize: 18, color: BaseColor.navyBlue }}>
                 Email ID & Password
               </Text>
@@ -185,14 +169,16 @@ const Login = ({ isLoading, navigation }) => {
             style={{
               flex: 3,
               //justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+              alignItems: "center",
+            }}
+          >
             <View
               style={
                 isFocused.emailInput || email.length > 0
-                  ? { ...textInputContainer, backgroundColor: '#eff5fa' }
-                  : { ...textInputContainer, backgroundColor: '#b8c9e0' }
-              }>
+                  ? { ...textInputContainer, backgroundColor: "#eff5fa" }
+                  : { ...textInputContainer, backgroundColor: "#b8c9e0" }
+              }
+            >
               <View style={iconContainer}>
                 <FontAwesome
                   name="envelope-o"
@@ -209,8 +195,8 @@ const Login = ({ isLoading, navigation }) => {
                   clearText
                   value={email}
                   onChangeText={(e) => setEmail(e)}
-                  onFocus={() => handleInputFocus('emailInput')}
-                  onBlur={() => handleInputBlur('emailInput')}
+                  onFocus={() => handleInputFocus("emailInput")}
+                  onBlur={() => handleInputBlur("emailInput")}
                 />
               </View>
               <View style={imgContainer}>
@@ -223,11 +209,16 @@ const Login = ({ isLoading, navigation }) => {
             <View
               style={
                 isFocused.passwordInput || password.length > 0
-                  ? { ...textInputContainer, backgroundColor: '#eff5fa' }
-                  : { ...textInputContainer, backgroundColor: '#b8c9e0' }
-              }>
+                  ? { ...textInputContainer, backgroundColor: "#eff5fa" }
+                  : { ...textInputContainer, backgroundColor: "#b8c9e0" }
+              }
+            >
               <View style={iconContainer}>
-                <FontAwesome5 name="lock" size={22} color={BaseColor.primaryColor} />
+                <FontAwesome5
+                  name="lock"
+                  size={22}
+                  color={BaseColor.primaryColor}
+                />
               </View>
               <View style={inputContainer}>
                 <TextInput
@@ -239,19 +230,24 @@ const Login = ({ isLoading, navigation }) => {
                   value={password}
                   onChangeText={(e) => setPassword(e)}
                   secureTextEntry={!passwordVisible}
-                  onFocus={() => handleInputFocus('passwordInput')}
-                  onBlur={() => handleInputBlur('passwordInput')}
+                  onFocus={() => handleInputFocus("passwordInput")}
+                  onBlur={() => handleInputBlur("passwordInput")}
                 />
               </View>
               <View style={imgContainer}>
                 <TouchableWithoutFeedback
                   onPress={handleSearch}
-                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                >
                   <Image
-                    source={passwordVisible ? Images.openViewIcon : Images.closedViewIcon}
+                    source={
+                      passwordVisible
+                        ? Images.openViewIcon
+                        : Images.closedViewIcon
+                    }
                     style={
-                      Platform.OS === 'ios'
-                        ? { height: 20, width: 20, resizeMode: 'contain' }
+                      Platform.OS === "ios"
+                        ? { height: 20, width: 20, resizeMode: "contain" }
                         : { height: hp(2.5), width: wp(6.5) }
                     }
                   />
@@ -262,7 +258,7 @@ const Login = ({ isLoading, navigation }) => {
             <TouchableOpacity style={loginBtn} onPress={handleLogin}>
               {loginLoading ? (
                 <View>
-                  <CustomLoader color={'#bedcf5'} size={10} />
+                  <CustomLoader color={"#bedcf5"} size={10} />
                 </View>
               ) : (
                 <Text style={loginTextButton}>Login</Text>
@@ -270,33 +266,35 @@ const Login = ({ isLoading, navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ flex: 4.5, display: 'flex', flexDirection: 'column' }}>
+        <View style={{ flex: 4.5, display: "flex", flexDirection: "column" }}>
           <View
             style={
-              Platform.OS === 'ios'
+              Platform.OS === "ios"
                 ? {
-                  flex: 1.8,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  bottom: bottom,
-                  marginTop: 2,
-                }
+                    flex: 1.8,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    bottom: bottom,
+                    marginTop: 2,
+                  }
                 : {
-                  flex: 2,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  bottom: bottom,
-                  marginTop: 5,
-                }
-            }>
+                    flex: 2,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    bottom: bottom,
+                    marginTop: 5,
+                  }
+            }
+          >
             <TouchableWithoutFeedback onPress={handlePress}>
               <Text
                 style={{
                   fontSize: 18,
                   color: BaseColor.darkPrimaryColor,
-                  fontWeight: 'bold',
+                  fontWeight: "bold",
                   paddingTop: 15,
-                }}>
+                }}
+              >
                 Sign Up
               </Text>
             </TouchableWithoutFeedback>
@@ -305,12 +303,13 @@ const Login = ({ isLoading, navigation }) => {
           <View
             style={{
               flex: 2,
-              alignItems: 'center',
-              justifyContent: 'flex-end',
+              alignItems: "center",
+              justifyContent: "flex-end",
               marginTop: 95,
-            }}>
+            }}
+          >
             <Image
-              style={{ height: 155, resizeMode: 'stretch' }}
+              style={{ height: 155, resizeMode: "stretch" }}
               source={Images.imagebottom}
               bottom={bottom}
             />

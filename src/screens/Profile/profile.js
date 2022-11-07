@@ -9,7 +9,6 @@ import {
   Alert,
   Pressable,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
 import { FullScreenLoader, GradientStyle } from "@components";
 import * as ImagePicker from "expo-image-picker";
@@ -25,30 +24,24 @@ import { FirebaseRequests, writeUserData } from "@services";
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 
 //UTILITIES
-import { getLocalData } from "@utils";
 import { BaseColor, storage } from "@config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
+//REDUX
+import { logoutUser, saveUser } from "@redux/reducers/user/action";
+import { useDispatch, useSelector } from "react-redux";
+
 const MyProfile = ({ navigation }) => {
-  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [imageUrl, setImageUrl] = useState("");
-  const [userName, setUserName] = useState("");
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.user);
+  const [userName, setUserName] = useState(userData?.username);
 
   // this will call first time and fetch current user details and render it in user interface
   useEffect(() => {
     try {
-      const unsubscribe = navigation.addListener("focus", async () => {
-        setIsLoading(true);
-        const uid = await getLocalData("loggedInUseruid");
-        const user = await FirebaseRequests.readUserData(uid);
-        if (user) {
-          setUser(user);
-          setUserName(user?.username || "");
-        }
-        setIsLoading(false);
-      });
+      const unsubscribe = navigation.addListener("focus", async () => {});
       return unsubscribe;
     } catch (error) {
       console.log("error <==>", error);
@@ -56,6 +49,7 @@ const MyProfile = ({ navigation }) => {
     }
   }, [navigation]);
 
+  // this is native function for picking image from local mobile gallery
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -75,7 +69,7 @@ const MyProfile = ({ navigation }) => {
   const uploadImage = async (file) => {
     let response = await fetch(file);
     let blob = await response.blob();
-    const storageRef = ref(storage, `profiles/${user?.userId}`);
+    const storageRef = ref(storage, `profiles/${userData?.userId}`);
     const uploadTask = uploadBytesResumable(storageRef, blob);
     setIsLoading(true);
     uploadTask.on(
@@ -102,10 +96,10 @@ const MyProfile = ({ navigation }) => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const imageUrl = downloadURL;
           writeUserData(
-            user?.userId,
-            user?.username,
+            userData?.userId,
+            userData?.username,
             "customer",
-            user?.email,
+            userData?.email,
             imageUrl
           );
           setIsLoading(false);
@@ -118,10 +112,8 @@ const MyProfile = ({ navigation }) => {
 
   // this is a reusable function that will fetch the current user data from firebase
   const fetchUser = async () => {
-    const newUser = await FirebaseRequests.readUserData(user?.userId);
-    if (newUser) {
-      setUser(newUser);
-    }
+    const newUser = await FirebaseRequests.readUserData(userData?.userId);
+    dispatch(saveUser(newUser));
   };
 
   // this is a logout function
@@ -143,19 +135,11 @@ const MyProfile = ({ navigation }) => {
   // this will remove current user data once user will click on logout button
   const removeLocalUser = async () => {
     try {
-      AsyncStorage.getAllKeys()
-        .then((keys) => AsyncStorage.multiRemove(keys))
-        .then(() => {
-          setUser(null);
-          setIsLoading(false);
-          setUploadProgress(0);
-          setImageUrl("");
-          setUserName("");
-          navigation.navigate("Login");
-        })
-        .catch((err) => {
-          console.log("error----", err);
-        });
+      dispatch(logoutUser());
+      setIsLoading(false);
+      setUploadProgress(0);
+      setUserName("");
+      navigation.navigate("Login");
     } catch (error) {
       console.log("error----", error);
       alert("something went wrong");
@@ -164,19 +148,18 @@ const MyProfile = ({ navigation }) => {
 
   // this will update current user data
   const handleUpdate = async () => {
-    if (user?.username != userName) {
+    if (userData?.username != userName) {
       setIsLoading(true);
       writeUserData(
-        user?.userId,
+        userData?.userId,
         userName,
         "customer",
-        user?.email,
-        user?.imageUrl
+        userData?.email,
+        userData?.imageUrl
       );
-      const newUser = await FirebaseRequests.readUserData(user?.userId);
+      const newUser = await FirebaseRequests.readUserData(userData?.userId);
       if (newUser) {
-        setUser(newUser);
-        setUserName(newUser?.username || "");
+        dispatch(saveUser(newUser));
         setIsLoading(false);
         alert("user updated successfully");
       }
@@ -200,11 +183,11 @@ const MyProfile = ({ navigation }) => {
             style={styles.avatar}
             source={{
               uri:
-                user?.imageUrl ||
+                userData?.imageUrl ||
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYmkp9a2rrD1Sskb9HLt5mDaTt4QaIs8CcBg&usqp=CAU",
             }}
           />
-          {user?.userId && (
+          {userData?.userId && (
             <TouchableOpacity
               style={{
                 position: "absolute",
@@ -220,19 +203,19 @@ const MyProfile = ({ navigation }) => {
               />
             </TouchableOpacity>
           )}
-          <Text style={styles.name}>{user?.username || "xxxxxx"}</Text>
+          <Text style={styles.name}>{userData?.username || "xxxxxx"}</Text>
         </View>
       </View>
 
       {/* MAIN CONTENT */}
-      {user && (
+      {userData && (
         <ScrollView style={styles.body}>
           <Text style={styles.inputLabel}>Username</Text>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.textInputStyle}
               color="#004084"
-              placeholder={user?.username}
+              placeholder={userData?.username}
               placeholderTextColor="#003f5c"
               clearText
               value={userName}
@@ -244,7 +227,7 @@ const MyProfile = ({ navigation }) => {
             <TextInput
               style={[styles.textInputStyle, { opacity: 0.5 }]}
               color="#004084"
-              placeholder={user?.email}
+              placeholder={userData?.email}
               placeholderTextColor="#003f5c"
               clearText
               editable={false}
@@ -256,14 +239,14 @@ const MyProfile = ({ navigation }) => {
               styles.logoutBtnContainer,
               {
                 opacity:
-                  user?.username?.trim() == userName?.trim() ||
+                  userData?.username?.trim() == userName?.trim() ||
                   userName?.trim().length == 0
                     ? 0.5
                     : 1,
               },
             ]}
           >
-            {user?.username?.trim() == userName?.trim() ||
+            {userData?.username?.trim() == userName?.trim() ||
             userName?.trim().length == 0 ? (
               <Pressable style={styles.logoutBtn} disabled={true}>
                 <MaterialCommunityIcons

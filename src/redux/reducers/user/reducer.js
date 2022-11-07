@@ -1,7 +1,13 @@
 import { SAVE_USER } from "./type";
 import { LOGOUT_USER } from "./type";
 
-const initialState = {};
+const initialState = {
+  username: null,
+  userId: null,
+  email: null,
+  imageUrl: null,
+  type: "customer",
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

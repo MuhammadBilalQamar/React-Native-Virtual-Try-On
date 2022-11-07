@@ -2,70 +2,39 @@
 import {
   Text,
   TouchableOpacity,
-  Alert,
   View,
   SafeAreaView,
-  StyleSheet,
   Image,
-  ScrollView,
   FlatList,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { GradientStyle } from "@components";
 
-//FIREBASE REQUESTS
-import { FirebaseRequests, writeUserData } from "@services";
-
-//ICONS
-import { AntDesign } from "@expo/vector-icons";
-
 //UTILITIES
-import { getLocalData } from "@utils";
-import { BaseColor, Images } from "@config";
+import { BaseColor } from "@config";
 
 //CONSTANTS
-import { HOME_ITEMS } from "../../constants/constants";
+import { HOME_ITEMS } from "@constants/constants";
 
 //STYLES
 import styles from "./home_styles";
 const { parentContainer } = styles;
 
-const Home = ({ navigation }) => {
-  const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+//REDUX
+import { useSelector } from "react-redux";
 
-  useEffect(() => {
-    try {
-      const unsubscribe = navigation.addListener("focus", async () => {
-        setIsLoading(true);
-        const uid = await getLocalData("loggedInUseruid");
-        const user = await FirebaseRequests.readUserData(uid);
-        if (user) {
-          setUser(user);
-        }
-        setIsLoading(false);
-      });
-      return unsubscribe;
-    } catch (error) {
-      console.log("error <==>", error);
-      setIsLoading(false);
-    }
-  }, [navigation]);
+const Home = ({ navigation }) => {
+  const userData = useSelector((state) => state.user);
 
   const clickEventListener = (item) => {
     switch (item.name) {
       case "Store Products":
         break;
-
       case "Upload Video":
         break;
-
       case "Shopping Cart":
-        navigation.navigate("Cart", {
-          user: user,
-        });
+        navigation.navigate("Cart");
         break;
-
       default:
         break;
     }
@@ -85,7 +54,7 @@ const Home = ({ navigation }) => {
               color: BaseColor.darkPrimaryColor,
             }}
           >
-            Wellcome : {user?.username || "Loading..."}
+            Wellcome : {userData?.username || "Loading..."}
           </Text>
           <View style={styles.container}>
             <FlatList

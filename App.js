@@ -7,7 +7,7 @@ import "react-native-gesture-handler";
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import { store, persistor } from "./src/redux/_store";
+import { store, persistor } from "@redux/_store";
 
 // DISABLED YELLOW WARNINGS
 console.ignoredYellowBox = ["Warning: Each", "Warning: Failed"];

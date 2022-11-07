@@ -5,34 +5,21 @@ import { GradientStyle } from "@components";
 import { Images } from "@config";
 import { getLocalData } from "@utils";
 import styles from "./styles";
+import { useSelector } from "react-redux";
 
 const SplashScreen = ({ navigation }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handlePress = () => {
-    navigation.navigate("SplashScreenSecond");
-  };
+  const userData = useSelector((state) => state.user);
 
   useEffect(() => {
-    getLocalData("loggedInUseruid").then((token) => {
-      if (token) {
-        setTimeout(() => {
-          navigation.navigate("InitailDashboard");
-        }, 1500);
-      } else {
-        setTimeout(() => {
-          navigation.navigate("Login");
-        }, 150);
-      }
-    });
+    if (userData?.userId) {
+      navigation.navigate("InitailDashboard");
+    } else {
+      navigation.navigate("Login");
+    }
   }, [navigation]);
 
-  if (isLoggedIn) {
-    navigation.navigate("InitailDashboard");
-  }
-
   return (
-    <TouchableWithoutFeedback onPress={handlePress}>
+    <TouchableWithoutFeedback>
       <GradientStyle style={styles.mainContainer}>
         <Image source={Images.logo} style={styles.devicesStyle} />
         <Text style={styles.text}>Virtual Clothing</Text>

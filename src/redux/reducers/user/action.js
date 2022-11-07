@@ -7,9 +7,15 @@ export const saveUser = (user) => {
   };
 };
 
-export const logoutUser = (user) => {
+export const logoutUser = () => {
   return {
     type: LOGOUT_USER,
-    payload: user,
+    payload: {
+      username: null,
+      userId: null,
+      email: null,
+      imageUrl: null,
+      type: "customer",
+    },
   };
 };

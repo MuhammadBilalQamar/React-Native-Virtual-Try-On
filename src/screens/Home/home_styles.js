@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { BaseColor } from "@config";
 
 const styles = StyleSheet.create({
   parentContainer: {
@@ -18,7 +17,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#ebf0f7",
   },
-
   card: {
     shadowColor: "#00000021",
     shadowOffset: {
@@ -28,7 +26,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
     elevation: 12,
-
     marginLeft: 20,
     marginRight: 20,
     marginTop: 20,
@@ -37,12 +34,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderRadius: 10,
   },
-
   name: {
     fontSize: 20,
     flex: 1,
-    // alignSelf: "center",
-    // color: "#3399ff",
     fontWeight: "bold",
   },
   count: {
@@ -55,13 +49,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 35,
     width: 100,
-    // padding: 10,
     flexDirection: "row",
-    // justifyContent: "center",
     alignItems: "center",
     borderRadius: 30,
     backgroundColor: "white",
-    // borderWidth: 1,
     borderColor: "#dcdcdc",
   },
   followButtonText: {
@@ -69,4 +60,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
 });
+
 export default styles;
