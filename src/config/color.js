@@ -13,4 +13,5 @@ export let BaseColor = {
   yellowColor: "#FDC60A",
   navyBlue: "#3C5A99",
   priceColor: "#bb816e",
+  redColor: "#f60000",
 };

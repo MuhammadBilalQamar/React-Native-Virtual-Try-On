@@ -21,26 +21,51 @@ import { Feather } from "@expo/vector-icons";
 
 //UTILITIES
 import { BaseColor, Images } from "@config";
+import { removeObjectFromArray } from "@utils";
 
 //STYLES
 import styles from "./product_details_styles";
 
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
+import { addCartItem } from "@redux/reducers/cart/action";
 
 const { parentContainer } = styles;
 
 const ProductDetails = ({ navigation, route }) => {
   let [selectedSize, setSelectedSize] = useState("S");
-  const products = useSelector((state) => state.products.products);
+  let [isLoading, setIsLoading] = useState(false);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const selectedProduct = route?.params?.product || null;
+  const dispatch = useDispatch();
+  const isCurrentProductAvailableInCart = cartItems?.find(
+    (i) => i.id == selectedProduct.id
+  );
 
   useEffect(() => {
     try {
       const unsubscribe = navigation.addListener("focus", async () => {});
       return unsubscribe;
     } catch (error) {}
-  }, [navigation]);
+  }, [navigation, selectedSize]);
+
+  const addToCart = async (product) => {
+    if (!isCurrentProductAvailableInCart) {
+      product["selectedSize"] = selectedSize;
+      product["selectedQty"] = 1;
+      cartItems.push(product);
+      dispatch(addCartItem(cartItems));
+      setIsLoading(!isLoading);
+      alert(`${product?.title} is successfully added to the cart`);
+    }
+  };
+
+  const removeFromCart = async (product) => {
+    const { id } = product;
+    const newCart = removeObjectFromArray(cartItems, "id", id);
+    dispatch(addCartItem(newCart));
+    alert(`${product?.title} is removed from the cart`);
+  };
 
   return (
     <>
@@ -100,7 +125,7 @@ const ProductDetails = ({ navigation, route }) => {
                         styles.btnSize,
                         {
                           backgroundColor:
-                            item === selectedSize ? "red" : "transparent",
+                            item === selectedSize ? "#3df700" : "transparent",
                         },
                       ]}
                       onPress={() => setSelectedSize(item)}
@@ -112,12 +137,24 @@ const ProductDetails = ({ navigation, route }) => {
               </View>
               <View style={styles.separator}></View>
               <View style={styles.addToCarContainer}>
-                <TouchableOpacity
-                  style={styles.shareButton}
-                  // onPress={() => this.clickEventListener()}
-                >
-                  <Text style={styles.shareButtonText}>Add To Cart</Text>
-                </TouchableOpacity>
+                {!isCurrentProductAvailableInCart ? (
+                  <TouchableOpacity
+                    style={styles.shareButton}
+                    onPress={() => addToCart(selectedProduct)}
+                  >
+                    <Text style={styles.shareButtonText}>Add To Cart</Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    style={[
+                      styles.shareButton,
+                      { backgroundColor: BaseColor.redColor },
+                    ]}
+                    onPress={() => removeFromCart(selectedProduct)}
+                  >
+                    <Text style={styles.shareButtonText}>Remove from cart</Text>
+                  </TouchableOpacity>
+                )}
               </View>
             </ScrollView>
           </View>

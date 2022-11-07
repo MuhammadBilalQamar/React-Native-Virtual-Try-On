@@ -21,29 +21,59 @@ import { Feather } from "@expo/vector-icons";
 
 //UTILITIES
 import { BaseColor, Images } from "@config";
+import { removeObjectFromArray } from "@utils";
 
 //STYLES
 import styles from "./cart_styles";
 
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
+import { addCartItem } from "@redux/reducers/cart/action";
 
 const { parentContainer } = styles;
 
 const Cart = ({ navigation }) => {
-  const [user, setUser] = useState(null);
-  const cartItems = useSelector((state) => state.products.products);
+  const [isLoading, setILoading] = useState(false);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     try {
-      const unsubscribe = navigation.addListener("focus", async () => {});
+      const unsubscribe = navigation.addListener("focus", async () => {
+        setILoading(!isLoading);
+      });
       return unsubscribe;
     } catch (error) {}
-  }, [navigation]);
+  }, [navigation, isLoading]);
 
   const handleCheckOut = () => {
+    dispatch(addCartItem([]));
     Alert.alert("Congratulations", "Your order has been successfully palced!");
   };
+
+  const handleDelete = (product) => {
+    const { id } = product;
+    Alert.alert(
+      "Are you sure?",
+      `do you want to remove ${product?.title} from cart?`,
+      [
+        {
+          text: "Cancel",
+          onPress: () => {},
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: () => {
+            const newCart = removeObjectFromArray(cartItems, "id", id);
+            dispatch(addCartItem(newCart));
+          },
+          style: "cancel",
+        },
+      ]
+    );
+  };
+
   return (
     <>
       <GradientStyle style={parentContainer}>
@@ -58,7 +88,7 @@ const Cart = ({ navigation }) => {
               color: BaseColor.darkPrimaryColor,
             }}
           >
-            {cartItems?.length || "0"} Items
+            {cartItems?.length || "0"} Items In Cart
           </Text>
 
           {/* CART PRODUCTS LISTING */}
@@ -72,7 +102,7 @@ const Cart = ({ navigation }) => {
                       isQtyShow={true}
                       showDeleteBtn={true}
                       onDeleteClick={(item) => {
-                        alert(JSON.stringify(item));
+                        handleDelete(item);
                       }}
                     />
                   </View>
@@ -81,7 +111,14 @@ const Cart = ({ navigation }) => {
           </ScrollView>
 
           {/* CHECKOUT BUTTON */}
-          <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckOut}>
+          <TouchableOpacity
+            style={[
+              styles.checkoutBtn,
+              { opacity: !cartItems || cartItems.length === 0 ? 0.5 : 1 },
+            ]}
+            onPress={handleCheckOut}
+            disabled={!cartItems || cartItems.length === 0}
+          >
             <Feather
               name="log-out"
               size={24}
