@@ -10,7 +10,8 @@ import { Provider } from "react-redux";
 import { store, persistor } from "@redux/_store";
 
 // DISABLED YELLOW WARNINGS
-console.ignoredYellowBox = ["Warning: Each", "Warning: Failed"];
+import { LogBox } from "react-native";
+LogBox.ignoreAllLogs(); //Ignore all logs in production mode
 
 const App = () => {
   return (
