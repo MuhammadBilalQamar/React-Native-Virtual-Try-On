@@ -38,8 +38,8 @@ const Home = ({ navigation }) => {
         navigation.navigate("Products");
         break;
       case "Upload Video":
-        // pickVideo();
-        navigation.navigate("ThreeDAvartar");
+        pickVideo();
+        // navigation.navigate("ThreeDAvartar");
         break;
       case "Shopping Cart":
         navigation.navigate("Cart");
