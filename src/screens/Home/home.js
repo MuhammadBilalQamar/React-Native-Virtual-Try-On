@@ -38,8 +38,8 @@ const Home = ({ navigation }) => {
         navigation.navigate("Products");
         break;
       case "Upload Video":
-        pickImage();
-        // navigation.navigate("ThreeDAvartar");
+        // pickVideo();
+        navigation.navigate("ThreeDAvartar");
         break;
       case "Shopping Cart":
         navigation.navigate("Cart");
@@ -51,7 +51,7 @@ const Home = ({ navigation }) => {
   };
 
   // this is native function for picking image from local mobile gallery
-  const pickImage = async () => {
+  const pickVideo = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Videos,
