@@ -19,13 +19,13 @@ import {
 
 //FIREBASE REQUESTS
 import { FirebaseRequests, writeUserData } from "@services";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 //ICONS
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 
 //UTILITIES
 import { BaseColor, storage } from "@config";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { logoutUser, saveUser } from "@redux/reducers/user/action";
@@ -53,7 +53,7 @@ const MyProfile = ({ navigation }) => {
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
