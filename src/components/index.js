@@ -4,6 +4,7 @@ import TabBar from "./CutomeTabBar";
 import FullScreenLoader from "./FullScreenLoader";
 import QuantityInput from "./QuantityInput";
 import CartItem from "./CartItem";
+import ThreeDTwo from "./ThreeDModel/threedModel";
 
 export {
   GradientStyle,
@@ -12,4 +13,5 @@ export {
   TabBar,
   CartItem,
   QuantityInput,
+  ThreeDTwo,
 };

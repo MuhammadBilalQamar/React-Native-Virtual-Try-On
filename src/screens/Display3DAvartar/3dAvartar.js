@@ -8,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 import React from "react";
-import { GradientStyle } from "@components";
+import { GradientStyle, ThreeDTwo } from "@components";
 
 //UTILITIES
 import { BaseColor } from "@config";
@@ -29,7 +29,9 @@ const ThreeDAvartar = ({ navigation }) => {
   return (
     <>
       <GradientStyle style={parentContainer}>
-        <SafeAreaView style={{ flex: 1 }}></SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
+          <ThreeDTwo/>
+        </SafeAreaView>
       </GradientStyle>
     </>
   );
