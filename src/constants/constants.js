@@ -20,7 +20,8 @@ export const PRODUCTS = [
   {
     id: 2,
     title: "Black Dri-FIT Pants",
-    decription: "Lightweight knit fabric giving you a slim feel through the leg. Tapered about the ankles giving an athletic look",
+    decription:
+      "Lightweight knit fabric giving you a slim feel through the leg. Tapered about the ankles giving an athletic look",
     price: "$ 24.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro2.png?alt=media&token=b6eda9d7-0868-4ea6-ab66-8f33163bbb1f",
@@ -35,7 +36,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "Lightweight crew neck T-shirt. Perfect for comfort with a simple style.",
+    decription:
+      "Lightweight crew neck T-shirt. Perfect for comfort with a simple style.",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro3.png?alt=media&token=c837b062-8663-4fb3-a6f0-cfb89423fc85",
   },
@@ -45,7 +47,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "Slim fit designed with high stretch that keeps its shape. Light wash with authentic denim look.",
+    decription:
+      "Slim fit designed with high stretch that keeps its shape. Light wash with authentic denim look.",
     price: "$ 32.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro4.png?alt=media&token=a6c99a44-04d5-4c4b-aaf1-a9d379756766",
@@ -56,7 +59,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "Classic Short Sleeve T-shirt. Designed with room in the chest and waist",
+    decription:
+      "Classic Short Sleeve T-shirt. Designed with room in the chest and waist",
     price: "$ 16.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro5.png?alt=media&token=3d7496ed-0ee9-4d75-90db-20a40db7cd15",
@@ -67,7 +71,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "High waisted straight leg jeans for good movement, zip fly with button, and raw denim for vintage look",
+    decription:
+      "High waisted straight leg jeans for good movement, zip fly with button, and raw denim for vintage look",
     price: "$ 32.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro6.png?alt=media&token=4d5bf4e0-4737-4e36-a150-3288e3a96843",
@@ -78,7 +83,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "V-neck blouse in woven fabric with a sheen. Collar, buttons at front, and long sleeves with a sleeve placket and button at cuffs",
+    decription:
+      "V-neck blouse in woven fabric with a sheen. Collar, buttons at front, and long sleeves with a sleeve placket and button at cuffs",
     price: "$ 24.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro7.png?alt=media&token=6affacd3-cd3e-45c2-afab-2906b1ea57d5",
@@ -89,9 +95,11 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "Ankle-length jeggings in stretch denim to embrace and showcase your figure. Extra-high waist, zip fly, mock front pockets, and regular back pockets.",
+    decription:
+      "Ankle-length jeggings in stretch denim to embrace and showcase your figure. Extra-high waist, zip fly, mock front pockets, and regular back pockets.",
     price: "$ 24.99 USD",
-    image: "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro8.png?alt=media&token=1503223c-1832-401e-a5d4-ecc2da5bda7b",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro8.png?alt=media&token=1503223c-1832-401e-a5d4-ecc2da5bda7b",
   },
   {
     id: 9,
@@ -99,7 +107,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "Fitted turtleneck top in soft, pima cotton jersey. Extra-long sleeves.",
+    decription:
+      "Fitted turtleneck top in soft, pima cotton jersey. Extra-long sleeves.",
     price: "$ 29.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro9.png?alt=media&token=e23eedc5-daaf-4ec1-a421-288dce2f0424",
@@ -110,7 +119,8 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
-    decription: "Loose-fit, 5-pocket jeans in thick, washed denim. High waist, zip fly with button, and straight legs.",
+    decription:
+      "Loose-fit, 5-pocket jeans in thick, washed denim. High waist, zip fly with button, and straight legs.",
     price: "$ 34.99 USD",
     image:
       "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro10.png?alt=media&token=f2b4cf5d-4568-45c6-946b-0a61a9c73dda",

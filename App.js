@@ -1,7 +1,11 @@
+// REACT COMPONENTS
 import React from "react";
 import { SafeAreaView } from "react-native";
+
+// REACT NAVIGATION
 import { NavigationContainer } from "@react-navigation/native";
 import Navigation from "./src/navigation/index";
+
 import "react-native-gesture-handler";
 
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
@@ -13,6 +17,7 @@ import { store, persistor } from "@redux/_store";
 import { LogBox } from "react-native";
 LogBox.ignoreAllLogs(); //Ignore all logs in production mode
 
+// APPLICATION ROOT COMPONENT
 const App = () => {
   return (
     <Provider store={store}>

@@ -1,5 +1,10 @@
+// REACT BASIC IMPORT
 import * as React from "react";
+
+// REACT NATIVE COMPONENTS
 import { TouchableOpacity } from "react-native";
+
+// ICONS
 import {
   Entypo,
   AntDesign,
@@ -7,8 +12,11 @@ import {
   FontAwesome5,
   Ionicons,
 } from "@expo/vector-icons";
-import { BaseColor } from "../config";
 
+// UTILITY
+import { BaseColor } from "@config";
+
+// REUSABLE FUNCTION THAT WILL SET THE HEADER BASED ON DIFFERENT SCREENS
 export const getNavigationOptions = (props) => {
   let navigationOptions = {};
   const { route, navigation, theme, drawerToggleRef } = props;

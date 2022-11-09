@@ -1,6 +1,11 @@
+// REACT BASIC IMPORT
+import * as React from "react";
+
+// NAVIGATION IMPORTS FROM REACT NAVIGATION PACKAGE
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import * as React from "react";
+
+// CUSTOM CREATED SCREENS IMPORTING
 import {
   SplashScreen,
   Login,
@@ -13,9 +18,14 @@ import {
   ProductDetails,
   ThreeDAvatar,
 } from "@screens";
+
+// NAVIAGATION REUSABLE UTILITY FUNCTION
 import { getNavigationOptions } from "./getNavOptions";
+
+// CUSTOM COMPONENT FOR GRADIENT BACKGROUND
 import { GradientStyle } from "@components";
 
+// ROOT NAVIGATOR RENDERING PART
 export default function Navigation(props) {
   return (
     <GradientStyle style={{ flex: 1, display: "flex" }}>
@@ -24,6 +34,7 @@ export default function Navigation(props) {
   );
 }
 
+// ROOT STACK NAVIGATOR WITH FIVE MAJOR CHILD SCREENS (SPLASH_SCREEN, LOGIN, SIGNUP, FORGOT_PASSWORD, DASHBOARD)
 const Stack = createNativeStackNavigator();
 function RootNavigator() {
   return (
@@ -57,17 +68,12 @@ function RootNavigator() {
         component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
-      {/* <Stack.Screen
-         name="Root"
-         component={BottomTabNavigator}
-         options={{ headerShown: false }}
-       /> */}
     </Stack.Navigator>
   );
 }
 
+// BOTTOM TAB NAVIGATOR WITH THREE CHILD SCREENS (HOME, CART, PROFILE)
 const BottomTab = createBottomTabNavigator();
-
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
@@ -92,7 +98,6 @@ function BottomTabNavigator() {
         options={(props) => {
           return getNavigationOptions({ ...props, theme: "light" });
         }}
-        //  listeners={resetHomeStackOnTabPress}
       />
       <BottomTab.Screen
         name="Cart"
@@ -112,8 +117,8 @@ function BottomTabNavigator() {
   );
 }
 
+// HOME STACK NAVIGATOR WITH THREE CHILD SCREENS (PRODUCTS, PRODUCT_DETAILS, 3DAVATAR)
 const HomeStack = createNativeStackNavigator();
-
 function HomeRootNavigator() {
   return (
     <HomeStack.Navigator>
@@ -149,8 +154,8 @@ function HomeRootNavigator() {
   );
 }
 
+// NAVIAGATION REFRENCE FOR NAVIGATING DIFFERENT SCREENS
 export const navigationRef = React.createRef();
-
 export const navigate = (name, params) => {
   navigationRef.current?.navigate(name, params);
 };
