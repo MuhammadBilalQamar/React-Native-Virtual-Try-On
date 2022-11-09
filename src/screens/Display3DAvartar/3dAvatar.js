@@ -4,15 +4,10 @@ import React from "react";
 import { GradientStyle, ThreeDTwo } from "@components";
 
 //STYLES
-import styles from "./avartar_styles";
+import styles from "./avatar_styles";
 const { parentContainer } = styles;
 
-// REDUX ELEMENTS FOR LOCAL DATA STORAGE
-import { useSelector } from "react-redux";
-
-const ThreeDAvartar = ({ navigation }) => {
-  const userData = useSelector((state) => state.user);
-
+const ThreeDAvatar = ({ navigation }) => {
   return (
     <>
       <GradientStyle style={parentContainer}>
@@ -24,4 +19,4 @@ const ThreeDAvartar = ({ navigation }) => {
   );
 };
 
-export default ThreeDAvartar;
+export default ThreeDAvatar;

@@ -140,9 +140,9 @@ export const getNavigationOptions = (props) => {
       break;
     }
 
-    case "ThreeDAvartar": {
+    case "ThreeDAvatar": {
       navigationOptions = {
-        title: "3D Avartar",
+        title: "3D Avatar",
         headerLeft: ({ color }) => (
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionicons

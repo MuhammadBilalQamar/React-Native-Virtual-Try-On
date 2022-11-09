@@ -39,7 +39,7 @@ const Home = ({ navigation }) => {
         break;
       case "Upload Video":
         // pickVideo();
-        navigation.navigate("ThreeDAvartar");
+        navigation.navigate("ThreeDAvatar");
         break;
       case "Shopping Cart":
         navigation.navigate("Cart");
@@ -96,7 +96,7 @@ const Home = ({ navigation }) => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const videoUrl = downloadURL;
-          navigation.navigate("ThreeDAvartar", { videoUrl });
+          navigation.navigate("ThreeDAvatar", { videoUrl });
           setIsLoading(false);
           setUploadProgress(0);
         });

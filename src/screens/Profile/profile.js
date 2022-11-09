@@ -176,7 +176,7 @@ const MyProfile = ({ navigation }) => {
         showProgress={true}
       />
 
-      {/* TOP HEADER AVARTAR WITH NAME */}
+      {/* TOP HEADER Avatar WITH NAME */}
       <View style={styles.header}>
         <View style={styles.headerContent}>
           <Image style={styles.avatar} source={{ uri: userData?.imageUrl }} />

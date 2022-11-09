@@ -1,2 +1,2 @@
-import ThreeDAvartar from './3dAvartar';
-export default ThreeDAvartar;
+import ThreeDAvatar from './3dAvatar';
+export default ThreeDAvatar;

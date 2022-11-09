@@ -7,7 +7,7 @@ import MyProfile from "./Profile";
 import Cart from "./Cart";
 import Products from "./Products/products";
 import ProductDetails from "./ProductDetails";
-import ThreeDAvartar from "./Display3DAvartar";
+import ThreeDAvatar from "./Display3DAvartar";
 
 export {
   SplashScreen,
@@ -19,5 +19,5 @@ export {
   Cart,
   Products,
   ProductDetails,
-  ThreeDAvartar,
+  ThreeDAvatar,
 };
