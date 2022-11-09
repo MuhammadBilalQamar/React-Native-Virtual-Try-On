@@ -18,8 +18,5 @@ module.exports = {
   resolver: {
     sourceExts: ["js", "json", "ts", "tsx", "cjs", "obj"],
     assetExts: ["db", "mp3", "ttf", "obj", "png", "jpg", "otf", "mtl"],
-    // sourceExts: process.env.RN_SRC_EXT
-    //   ? [...process.env.RN_SRC_EXT.split(",").concat(defaultSourceExts), "cjs"] // <-- cjs added here
-    //   : [...defaultSourceExts, "cjs"], // <-- cjs added here
   },
 };
