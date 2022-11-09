@@ -36,7 +36,7 @@ export default function CartItem({
         <View style={styles.cardContent}>
           <View style={{ display: "flex", flexDirection: "row" }}>
             <Text style={styles.name}>
-              {truncateString(item?.title, 9) || ""}
+              {truncateString(item?.title, 8) || ""}
             </Text>
             <TouchableOpacity style={styles.btnSize}>
               <Text style={{ color: "white", fontWeight: "bold" }}>

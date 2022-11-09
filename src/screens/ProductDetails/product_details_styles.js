@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.7,
     color: "#696969",
     fontWeight: "bold",
+    textAlign: "center",
   },
   price: {
     marginTop: 10,
