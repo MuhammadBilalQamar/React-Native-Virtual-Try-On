@@ -34,9 +34,15 @@ export default function CartItem({
       <View style={styles.card}>
         <Image style={styles.image} source={{ uri: item?.image || "" }} />
         <View style={styles.cardContent}>
-          <View style={{ display: "flex", flexDirection: "row" }}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              position: "relative",
+            }}
+          >
             <Text style={styles.name}>
-              {truncateString(item?.title, 8) || ""}
+              {truncateString(item?.title, 11) || ""}
             </Text>
             <TouchableOpacity style={styles.btnSize}>
               <Text style={{ color: "white", fontWeight: "bold" }}>

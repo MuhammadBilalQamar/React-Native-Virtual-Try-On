@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: "#ebf0f7",
+    resizeMode: "contain",
   },
   card: {
     width: "50%",
@@ -59,6 +60,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    position: "absolute",
+    left: 70,
   },
 });
 export default styles;

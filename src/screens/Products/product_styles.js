@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   list: {
     paddingHorizontal: 5,
     marginBottom: 60,
-
   },
   listContainer: {
     alignItems: "center",
@@ -62,6 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 150,
     width: null,
+    resizeMode: "stretch",
   },
   /******** card components **************/
   title: {

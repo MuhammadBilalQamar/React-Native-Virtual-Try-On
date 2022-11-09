@@ -43,15 +43,31 @@ const Cart = ({ navigation }) => {
 
   // this function will all when user clicks on checkout button
   const handleCheckOut = () => {
-    dispatch(addCartItem([]));
-    Alert.alert("Congratulations", "Your order has been successfully placed!");
+    Alert.alert("Are you sure", `do you want to checkout?`, [
+      {
+        text: "Cancel",
+        onPress: () => {},
+        style: "cancel",
+      },
+      {
+        text: "Yes",
+        onPress: () => {
+          dispatch(addCartItem([]));
+          Alert.alert(
+            "Congratulations",
+            "Your order has been successfully placed!"
+          );
+        },
+        style: "cancel",
+      },
+    ]);
   };
 
   // this function will delete the item from cart
   const handleDelete = (product) => {
     const { id } = product;
     Alert.alert(
-      "Are you sure?",
+      "Are you sure",
       `do you want to remove ${product?.title} from cart?`,
       [
         {

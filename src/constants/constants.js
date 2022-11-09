@@ -12,7 +12,7 @@ export const PRODUCTS = [
       "Slim fit shirt in lightweight cotton fabric. Buttoned up, short sleeve, and dropped shoulders.",
     price: "$ 19.99 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/696/assets/220700_96_M7662_Girls_DP_Dresses.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro1.png?alt=media&token=cdaedfc1-e2b1-41c1-bd38-116169064a0d",
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
@@ -23,7 +23,7 @@ export const PRODUCTS = [
     decription: "Lightweight knit fabric giving you a slim feel through the leg. Tapered about the ankles giving an athletic look",
     price: "$ 24.99 USD",
     image:
-      "https://i.pinimg.com/474x/21/89/6e/21896e0a5c4e5058af26a46af6ffc4b5.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro2.png?alt=media&token=b6eda9d7-0868-4ea6-ab66-8f33163bbb1f",
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     availableQty: 1,
@@ -37,7 +37,7 @@ export const PRODUCTS = [
     availableQty: 1,
     decription: "Lightweight crew neck T-shirt. Perfect for comfort with a simple style.",
     image:
-      "https://static.hopscotch.in/fstatic/product/202207/5ff9fee0-8605-45e5-858b-4f9939403214_large.jpg?version=1657528328882&tr=w-480,c-at_max,n-normal",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro3.png?alt=media&token=c837b062-8663-4fb3-a6f0-cfb89423fc85",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ export const PRODUCTS = [
     decription: "Slim fit designed with high stretch that keeps its shape. Light wash with authentic denim look.",
     price: "$ 32.99 USD",
     image:
-      "https://static.hopscotch.in/fstatic/product/202205/426a06c4-4413-4883-b0c5-39ea2b500def_large.jpg?version=1653388747639&tr=w-480,c-at_max,n-normal",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro4.png?alt=media&token=a6c99a44-04d5-4c4b-aaf1-a9d379756766",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ export const PRODUCTS = [
     decription: "Classic Short Sleeve T-shirt. Designed with room in the chest and waist",
     price: "$ 16.99 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/698/assets/220700_96_M7663_Boys_DP_Tees.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro5.png?alt=media&token=3d7496ed-0ee9-4d75-90db-20a40db7cd15",
   },
   {
     id: 6,
@@ -70,7 +70,7 @@ export const PRODUCTS = [
     decription: "High waisted straight leg jeans for good movement, zip fly with button, and raw denim for vintage look",
     price: "$ 32.99 USD",
     image:
-      "https://static.hopscotch.in/fstatic/product/202207/9cfe7fa0-5a1d-4323-b71f-3553a49a2666_large.jpg?version=1657528293520&tr=w-480,c-at_max,n-normal",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro6.png?alt=media&token=4d5bf4e0-4737-4e36-a150-3288e3a96843",
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ export const PRODUCTS = [
     decription: "V-neck blouse in woven fabric with a sheen. Collar, buttons at front, and long sleeves with a sleeve placket and button at cuffs",
     price: "$ 24.99 USD",
     image:
-      "https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/553/698/assets/220700_96_M7663_Boys_DP_Pajamas.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro7.png?alt=media&token=6affacd3-cd3e-45c2-afab-2906b1ea57d5",
   },
   {
     id: 8,
@@ -91,7 +91,7 @@ export const PRODUCTS = [
     availableQty: 1,
     decription: "Ankle-length jeggings in stretch denim to embrace and showcase your figure. Extra-high waist, zip fly, mock front pockets, and regular back pockets.",
     price: "$ 24.99 USD",
-    image: "https://m.media-amazon.com/images/I/41CrbVRse8L.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro8.png?alt=media&token=1503223c-1832-401e-a5d4-ecc2da5bda7b",
   },
   {
     id: 9,
@@ -102,10 +102,10 @@ export const PRODUCTS = [
     decription: "Fitted turtleneck top in soft, pima cotton jersey. Extra-long sleeves.",
     price: "$ 29.99 USD",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGhRZqP7DSu3NjJIl9iWn6-MslpLosv9s9LQ&usqp=CAU",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro9.png?alt=media&token=e23eedc5-daaf-4ec1-a421-288dce2f0424",
   },
   {
-    id: 9,
+    id: 10,
     title: "Black 90s Baggy High Jeans",
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
@@ -113,7 +113,7 @@ export const PRODUCTS = [
     decription: "Loose-fit, 5-pocket jeans in thick, washed denim. High waist, zip fly with button, and straight legs.",
     price: "$ 34.99 USD",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYCI2WNv_ELXcjM92sShZ25-VcrKkxTshBA&usqp=CAU",
+      "https://firebasestorage.googleapis.com/v0/b/employee-app-87a6d.appspot.com/o/productImages%2Fpro10.png?alt=media&token=f2b4cf5d-4568-45c6-946b-0a61a9c73dda",
   },
 ];
 
