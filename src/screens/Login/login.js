@@ -25,6 +25,7 @@ import {
 //ICONS
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -48,8 +49,8 @@ const {
 
 const Login = ({ navigation }) => {
   const [passwordVisible, showpasswordVisible] = useState(false);
-  const [email, setEmail] = useState("n@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
   const [isFocused, setIsFocused] = useState({
     emailInput: false,
@@ -179,7 +180,6 @@ const Login = ({ navigation }) => {
           <View
             style={{
               flex: 3,
-              //justifyContent: 'center',
               alignItems: "center",
             }}
           >
@@ -210,11 +210,7 @@ const Login = ({ navigation }) => {
                   onBlur={() => handleInputBlur("emailInput")}
                 />
               </View>
-              <View style={imgContainer}>
-                {/* <TouchableWithoutFeedback onPress={ handleSearch }>
-                        <Image source={  } style={{height: hp(2), width: wp(6.5)} } />
-                    </TouchableWithoutFeedback> */}
-              </View>
+              <View style={imgContainer}></View>
             </View>
 
             <View
@@ -250,17 +246,10 @@ const Login = ({ navigation }) => {
                   onPress={handleSearch}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <Image
-                    source={
-                      passwordVisible
-                        ? Images.openViewIcon
-                        : Images.closedViewIcon
-                    }
-                    style={
-                      Platform.OS === "ios"
-                        ? { height: 20, width: 20, resizeMode: "contain" }
-                        : { height: hp(2.5), width: wp(6.5) }
-                    }
+                  <Feather
+                    name={`${passwordVisible ? "eye" : "eye-off"}`}
+                    size={24}
+                    color={BaseColor.darkPrimaryColor}
                   />
                 </TouchableWithoutFeedback>
               </View>
