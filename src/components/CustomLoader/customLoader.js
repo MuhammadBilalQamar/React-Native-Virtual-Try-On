@@ -1,28 +1,25 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { Animated, Easing, View } from 'react-native';
-import Indicator from './indicator';
-import styles from './customLoader_styles';
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { Animated, Easing } from "react-native";
+import Indicator from "./indicator";
+import styles from "./customLoader_styles";
 
 export default class CustomLoader extends PureComponent {
   static defaultProps = {
     animationEasing: Easing.inOut(Easing.ease),
-
-    color: 'blue',
+    color: "blue",
     count: 3,
     size: 10,
   };
 
   static propTypes = {
     ...Indicator.propTypes,
-
     color: PropTypes.string,
     size: PropTypes.number,
   };
 
   constructor(props) {
     super(props);
-
     this.renderComponent = this.renderComponent.bind(this);
   }
 
@@ -35,29 +32,23 @@ export default class CustomLoader extends PureComponent {
       margin: size / 2,
       borderRadius: size / 2,
       backgroundColor,
-      transform: [{
-        scale: progress.interpolate({
-          inputRange: [
-            0.0,
-            (index + 0.5) / (count + 1),
-            (index + 1.0) / (count + 1),
-            (index + 1.5) / (count + 1),
-            1.0,
-          ],
-          outputRange: [
-            1.0,
-            1.36,
-            1.56,
-            1.06,
-            1.0,
-          ],
-        }),
-      }],
+      transform: [
+        {
+          scale: progress.interpolate({
+            inputRange: [
+              0.0,
+              (index + 0.5) / (count + 1),
+              (index + 1.0) / (count + 1),
+              (index + 1.5) / (count + 1),
+              1.0,
+            ],
+            outputRange: [1.0, 1.36, 1.56, 1.06, 1.0],
+          }),
+        },
+      ],
     };
 
-    return (
-      <Animated.View style={style} {...{ key: index }} />
-    );
+    return <Animated.View style={style} {...{ key: index }} />;
   }
 
   render() {

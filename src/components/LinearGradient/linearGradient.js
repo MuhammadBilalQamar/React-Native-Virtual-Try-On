@@ -1,11 +1,11 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
+import React from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 const GradientStyle = ({ style, children }) => {
   return (
     <LinearGradient
-      colors={['#c9e2f5', '#eae9f3']}
+      colors={["#c9e2f5", "#eae9f3"]}
       style={style}
       useAngle={true}
       angle={-110}

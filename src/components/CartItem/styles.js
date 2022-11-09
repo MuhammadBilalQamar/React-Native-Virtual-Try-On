@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { BaseColor } from "@config";
 
+// these are the styles for cart item component
 const styles = StyleSheet.create({
   parentContainer: {
     display: "flex",
@@ -17,13 +18,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#ebf0f7",
   },
-
   card: {
     width: "50%",
     padding: 10,
     flexDirection: "row",
   },
-
   name: {
     fontSize: 20,
     fontWeight: "bold",
@@ -57,7 +56,6 @@ const styles = StyleSheet.create({
     borderColor: "#778899",
     borderWidth: 1,
     backgroundColor: "green",
-    // marginHorizontal: 3,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

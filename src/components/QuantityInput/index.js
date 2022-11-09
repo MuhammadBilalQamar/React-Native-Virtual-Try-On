@@ -1,2 +1,2 @@
-import QuantityInput from './quantityInput';
+import QuantityInput from "./quantityInput";
 export default QuantityInput;

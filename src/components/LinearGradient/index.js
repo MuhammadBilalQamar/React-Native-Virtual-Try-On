@@ -1,2 +1,2 @@
-import GradientStyle from './linearGradient';
+import GradientStyle from "./linearGradient";
 export default GradientStyle;

@@ -8,7 +8,7 @@ export default function FullScreenLoader({
   dwonload = false,
   showProgress = false,
   progress = 0,
-  text
+  text,
 }) {
   return (
     <Modal
@@ -37,7 +37,7 @@ export default function FullScreenLoader({
               {progress} %
             </Text>
             <Text style={{ color: "white", fontWeight: "bold" }}>
-              {text || 'Loading'}...
+              {text || "Loading"}...
             </Text>
           </View>
         )}
