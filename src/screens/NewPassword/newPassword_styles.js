@@ -1,53 +1,47 @@
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+} from "react-native-responsive-screen";
 
-import {StyleSheet} from 'react-native';
-// import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import config from '../../config';
+import { StyleSheet } from "react-native";
+import config from "@config";
 
-const {colors} = config;
+const { colors } = config;
 
+// these are the styles for NewPassword screen GUI
 const styles = StyleSheet.create({
   parentContainer: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
   },
   mainHeader: {
     flex: 1.2,
     borderBottomColor: colors.grey2,
     borderBottomWidth: 2,
-    justifyContent: 'center',
-    backgroundColor: 'red',
+    justifyContent: "center",
+    backgroundColor: "red",
   },
   textInputContainer: {
     marginTop: hp(4),
-    flexDirection: 'row',
+    flexDirection: "row",
     height: hp(8.45),
     width: wp(77.22),
-    // marginLeft: 20,
     borderRadius: 12,
-    //borderWidth: 2,
-    //borderColor: colors.grey2,
-    backgroundColor: '#eff5fa',
+    backgroundColor: "#eff5fa",
   },
   iconContainer: {
     flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: 'blue'
+    justifyContent: "center",
+    alignItems: "center",
   },
   inputContainer: {
     flex: 6.5,
-    justifyContent: 'center',
-    // backgroundColor: '#eff5fa'
+    justifyContent: "center",
   },
   imgContainer: {
     flex: 1.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    //backgroundColor: 'pink'
+    justifyContent: "center",
+    alignItems: "center",
   },
   textInputStyle: {
     padding: 0,
@@ -59,18 +53,18 @@ const styles = StyleSheet.create({
     width: wp(77.22),
     borderRadius: 12,
     borderColor: colors.grey2,
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
   },
   loginBtn: {
-    width: '80%',
+    width: "80%",
     borderRadius: 15,
     height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: hp(4),
-    backgroundColor: '#004282',
+    backgroundColor: "#004282",
   },
 
   loginTextButton: {
@@ -78,10 +72,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     ...Platform.select({
       ios: {
-        fontFamily: 'Manrope-Regular',
+        fontFamily: "Manrope-Regular",
       },
       default: {
-        fontFamily: 'Monorope',
+        fontFamily: "Monorope",
       },
     }),
   },
@@ -89,7 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginRight: wp(15),
     color: colors.darkishBlue,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 
   showPasswordStyle: {

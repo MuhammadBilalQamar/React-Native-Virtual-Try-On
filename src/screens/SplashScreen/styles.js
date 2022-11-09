@@ -1,27 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
-import { BaseColor } from '@config';
+} from "react-native-responsive-screen";
+import { BaseColor } from "@config";
 
-
+// these are the styles for SplashScreen screen GUI
 const styles = StyleSheet.create({
   mainContainer: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: BaseColor.primaryColor
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: BaseColor.primaryColor,
   },
   text: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: BaseColor.darkPrimaryColor
+    fontWeight: "bold",
+    color: BaseColor.darkPrimaryColor,
   },
   devicesStyle: {
     height: hp(15.88),
     width: wp(22.07),
-  }
+  },
 });
 export default styles;

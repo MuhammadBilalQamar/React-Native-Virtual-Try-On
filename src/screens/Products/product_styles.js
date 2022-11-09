@@ -1,18 +1,17 @@
 import { StyleSheet } from "react-native";
 import { BaseColor } from "@config";
 
+// these are the styles for Products screen GUI
 const styles = StyleSheet.create({
   parentContainer: {
     display: "flex",
     flex: 1,
   },
   container: {
-    // flex: 1,
     marginTop: 20,
   },
   list: {
     paddingHorizontal: 5,
-    // backgroundColor: "#E6E6E6",
     marginBottom: 60,
 
   },

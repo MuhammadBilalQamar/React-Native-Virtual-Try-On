@@ -1,20 +1,7 @@
 //COMPONENTS
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  SafeAreaView,
-  Image,
-  FlatList,
-} from "react-native";
+import { SafeAreaView } from "react-native";
 import React from "react";
 import { GradientStyle, ThreeDTwo } from "@components";
-
-//UTILITIES
-import { BaseColor } from "@config";
-
-//CONSTANTS
-import { HOME_ITEMS } from "@constants/constants";
 
 //STYLES
 import styles from "./avartar_styles";
@@ -30,7 +17,7 @@ const ThreeDAvartar = ({ navigation }) => {
     <>
       <GradientStyle style={parentContainer}>
         <SafeAreaView style={{ flex: 1 }}>
-          <ThreeDTwo/>
+          <ThreeDTwo />
         </SafeAreaView>
       </GradientStyle>
     </>

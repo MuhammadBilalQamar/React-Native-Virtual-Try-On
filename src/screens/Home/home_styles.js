@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+// these are the styles for Home screen GUI
 const styles = StyleSheet.create({
   parentContainer: {
     display: "flex",

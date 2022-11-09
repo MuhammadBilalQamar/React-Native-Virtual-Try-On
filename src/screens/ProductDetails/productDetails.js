@@ -2,35 +2,24 @@
 import {
   Text,
   TouchableOpacity,
-  Alert,
   View,
   SafeAreaView,
-  StyleSheet,
   Image,
   ScrollView,
-  FlatList,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { GradientStyle, CartItem } from "@components";
-
-//FIREBASE REQUESTS
-import { FirebaseRequests, writeUserData } from "@services";
-
-//ICONS
-import { Feather } from "@expo/vector-icons";
+import { GradientStyle } from "@components";
 
 //UTILITIES
-import { BaseColor, Images } from "@config";
+import { BaseColor } from "@config";
 import { removeObjectFromArray } from "@utils";
-
-//STYLES
-import styles from "./product_details_styles";
 
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { useSelector, useDispatch } from "react-redux";
 import { addCartItem } from "@redux/reducers/cart/action";
 
-const { parentContainer } = styles;
+//STYLES
+import styles from "./product_details_styles";
 
 const ProductDetails = ({ navigation, route }) => {
   let [selectedSize, setSelectedSize] = useState("S");
@@ -49,6 +38,7 @@ const ProductDetails = ({ navigation, route }) => {
     } catch (error) {}
   }, [navigation, selectedSize]);
 
+  // this function will add the selected product in the cart
   const addToCart = async (product) => {
     if (!isCurrentProductAvailableInCart) {
       product["selectedSize"] = selectedSize;
@@ -60,6 +50,7 @@ const ProductDetails = ({ navigation, route }) => {
     }
   };
 
+  // this function will remove the selected product from cart
   const removeFromCart = async (product) => {
     const { id } = product;
     const newCart = removeObjectFromArray(cartItems, "id", id);
@@ -67,9 +58,10 @@ const ProductDetails = ({ navigation, route }) => {
     alert(`${product?.title} is removed from the cart`);
   };
 
+  // this is the UI renderation part
   return (
     <>
-      <GradientStyle style={parentContainer}>
+      <GradientStyle style={styles.parentContainer}>
         <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.container}>
             <ScrollView>

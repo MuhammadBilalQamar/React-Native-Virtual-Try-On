@@ -5,6 +5,7 @@ import {
 } from 'react-native-responsive-screen';
 import { BaseColor } from '@config';
 
+// these are the styles for Forgot screen GUI
 const styles = StyleSheet.create({
   parentContainer: {
     display: 'flex',

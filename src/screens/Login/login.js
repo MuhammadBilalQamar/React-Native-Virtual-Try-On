@@ -1,3 +1,4 @@
+//COMPONENTS
 import {
   Image,
   Platform,
@@ -7,15 +8,19 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { CustomLoader, GradientStyle } from "@components";
 import React, { useMemo, useState } from "react";
+
+//UTILITIES
+import { BaseColor, Images, auth } from "@config";
 import { useKeyPad } from "@utils";
+
+//STYLES
+import styles from "./login_styles";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { CustomLoader, GradientStyle } from "@components";
-import { BaseColor, Images, auth } from "@config";
-import styles from "./login_styles";
 
 //ICONS
 import { FontAwesome } from "@expo/vector-icons";
@@ -54,14 +59,17 @@ const Login = ({ navigation }) => {
 
   const keyPad = useKeyPad();
 
+  // this function will navigate user to the signup screen
   const handlePress = () => {
     navigation.navigate("SignUp");
   };
 
+  // this function will toggle the eye icon
   const handleSearch = () => {
     showpasswordVisible(!passwordVisible);
   };
 
+  // this function will login user by taking their email and password as an input
   const handleLogin = async () => {
     setLoginLoading(true);
     signInWithEmailAndPassword(auth, email, password)
@@ -72,7 +80,6 @@ const Login = ({ navigation }) => {
         if (uid) {
           const user = await FirebaseRequests.readUserData(uid);
           if (user) {
-            // setLocalData("loggedInUseruid", uid);
             dispatch(saveUser(user));
             navigation.navigate("InitailDashboard");
           }
@@ -87,18 +94,21 @@ const Login = ({ navigation }) => {
       });
   };
 
+  // this function will focus the input field
   const handleInputFocus = (input) => {
     setIsFocused({
       [input]: true,
     });
   };
 
+  // this will call when input field will blur
   let handleInputBlur = (input) => {
     setIsFocused({
       [input]: false,
     });
   };
 
+  // this will memorize the keyboard
   const bottom = useMemo(() => {
     if (keyPad) {
       return keyPad - hp(58);
@@ -106,6 +116,7 @@ const Login = ({ navigation }) => {
     return 0;
   }, [keyPad]);
 
+  // this is ui renderation
   return (
     <>
       <GradientStyle style={parentContainer}>

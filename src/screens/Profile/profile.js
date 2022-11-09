@@ -58,14 +58,13 @@ const MyProfile = ({ navigation }) => {
       aspect: [4, 3],
       quality: 1,
     });
-    // console.log(result);
     if (!result.cancelled) {
       const image = result.uri;
       await uploadImage(image);
     }
   };
 
-  // this function will take image file as a parameter and update that file in firebase storage
+  // this function will take image file as an input and update that file in firebase storage
   const uploadImage = async (file) => {
     let response = await fetch(file);
     let blob = await response.blob();
@@ -166,6 +165,7 @@ const MyProfile = ({ navigation }) => {
     }
   };
 
+  // this is the ui renderation part
   return (
     <GradientStyle style={styles.container}>
       <FullScreenLoader
@@ -179,14 +179,7 @@ const MyProfile = ({ navigation }) => {
       {/* TOP HEADER AVARTAR WITH NAME */}
       <View style={styles.header}>
         <View style={styles.headerContent}>
-          <Image
-            style={styles.avatar}
-            source={{
-              uri:
-                userData?.imageUrl ||
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYmkp9a2rrD1Sskb9HLt5mDaTt4QaIs8CcBg&usqp=CAU",
-            }}
-          />
+          <Image style={styles.avatar} source={{ uri: userData?.imageUrl }} />
           {userData?.userId && (
             <TouchableOpacity
               style={{
@@ -286,6 +279,7 @@ const MyProfile = ({ navigation }) => {
   );
 };
 
+// these are the styles for Profile screen GUI
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -318,9 +312,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
-  body: {
-    // backgroundColor: "#E6E6FA",
-  },
+  body: {},
   username: {
     color: "#20B2AA",
     fontSize: 22,

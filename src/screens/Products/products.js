@@ -2,37 +2,28 @@
 import {
   Text,
   TouchableOpacity,
-  Alert,
   View,
   SafeAreaView,
-  StyleSheet,
   Image,
-  ScrollView,
   FlatList,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import { GradientStyle, CartItem } from "@components";
-
-//FIREBASE REQUESTS
-import { FirebaseRequests, writeUserData } from "@services";
+import React, { useEffect } from "react";
+import { GradientStyle } from "@components";
 
 //ICONS
 import { Ionicons } from "@expo/vector-icons";
 
 //UTILITIES
-import { BaseColor, Images } from "@config";
+import { BaseColor } from "@config";
 
 //STYLES
 import styles from "./product_styles";
 
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
-import { useSelector, useDispatch } from "react-redux";
-
-const { parentContainer } = styles;
+import { useSelector } from "react-redux";
 
 const Products = ({ navigation }) => {
   const products = useSelector((state) => state.products.products);
-  // const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     try {
@@ -41,18 +32,19 @@ const Products = ({ navigation }) => {
     } catch (error) {}
   }, [navigation]);
 
+  // this function will navigate user to the selected product details screen
   const viewProductDetails = (item) => {
     const { id } = item;
     navigation.navigate("ProductDetails", {
       id,
       product: item,
     });
-    // Alert.alert("Success", "The product has been added to your cart");
   };
 
+  // this is the ui renderation part
   return (
     <>
-      <GradientStyle style={parentContainer}>
+      <GradientStyle style={styles.parentContainer}>
         <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.container}>
             <FlatList
@@ -99,17 +91,6 @@ const Products = ({ navigation }) => {
                             <Text style={styles.buyNow}>View</Text>
                           </TouchableOpacity>
                         </View>
-                        {/* <View style={styles.socialBarSection}>
-                          <TouchableOpacity style={styles.socialBarButton}>
-                            <Image
-                              style={styles.icon}
-                              source={{
-                                uri: "https://img.icons8.com/color/50/000000/hearts.png",
-                              }}
-                            />
-                            <Text>25</Text>
-                          </TouchableOpacity>
-                        </View> */}
                       </View>
                     </View>
                   </View>

@@ -38,8 +38,8 @@ const Home = ({ navigation }) => {
         navigation.navigate("Products");
         break;
       case "Upload Video":
-        pickVideo();
-        // navigation.navigate("ThreeDAvartar");
+        // pickVideo();
+        navigation.navigate("ThreeDAvartar");
         break;
       case "Shopping Cart":
         navigation.navigate("Cart");
@@ -104,6 +104,7 @@ const Home = ({ navigation }) => {
     );
   };
 
+  // this is the GUI view of the screen
   return (
     <>
       <GradientStyle style={parentContainer}>

@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { BaseColor } from "@config";
 
+// these are the styles for Cart screen GUI
 const styles = StyleSheet.create({
   parentContainer: {
     display: "flex",
