@@ -7,12 +7,14 @@ import { createStore, combineReducers } from "redux";
 import user from "./reducers/user/reducer";
 import products from "./reducers/products/reducer";
 import cart from "./reducers/cart/reducer";
+import drawer from "./reducers/drawer/reducer";
 
 // COMBINING ALL REDUCERS
 const combinedReducer = combineReducers({
   user,
   products,
   cart,
+  drawer,
 });
 
 const persistConfig = {

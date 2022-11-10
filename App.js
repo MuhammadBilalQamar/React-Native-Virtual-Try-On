@@ -1,3 +1,5 @@
+import "react-native-gesture-handler";
+
 // REACT COMPONENTS
 import React from "react";
 import { SafeAreaView } from "react-native";
@@ -5,8 +7,7 @@ import { SafeAreaView } from "react-native";
 // REACT NAVIGATION
 import { NavigationContainer } from "@react-navigation/native";
 import Navigation from "./src/navigation/index";
-
-import "react-native-gesture-handler";
+import Router from "./Router";
 
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { PersistGate } from "redux-persist/integration/react";
@@ -22,11 +23,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <SafeAreaView style={{ flex: 1 }}>
-          <NavigationContainer>
-            <Navigation />
-          </NavigationContainer>
-        </SafeAreaView>
+        <Router />
       </PersistGate>
     </Provider>
   );
