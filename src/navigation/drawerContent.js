@@ -10,9 +10,6 @@ import {
 } from "react-native";
 import { GradientStyle } from "@components";
 
-//STYLES
-import styles from "./styles";
-
 //UTILITIES
 import { BaseColor } from "@config";
 
@@ -25,6 +22,9 @@ import { closeDrawer } from "@redux/reducers/drawer/action";
 
 // NAVIGATION
 import { navigationRef } from "@navigation";
+
+//STYLES
+import styles from "./styles";
 
 const items = [
   {
@@ -98,8 +98,8 @@ export const DrawerContent = () => {
         "Email: virtualtryonclothing@gmail.com for any inquiries."
       );
     } else {
-      setRouter(item.text);
       if (navigationRef?.current) {
+        setRouter(item.text);
         dispatch(closeDrawer(false));
         navigationRef?.current?.navigate(item.text);
       }

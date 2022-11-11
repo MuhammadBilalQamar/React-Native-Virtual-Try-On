@@ -4,7 +4,7 @@ import { View, StatusBar } from "react-native";
 import MenuOverlay from "@navigation/customeDrawer";
 // REACT NAVIGATION
 import { NavigationContainer } from "@react-navigation/native";
-import { navigationRef } from "@navigation";
+import { navigationRef } from "./src/navigation";
 import Navigation from "@navigation";
 
 // APPLICATION ROUTER COMPONENT
