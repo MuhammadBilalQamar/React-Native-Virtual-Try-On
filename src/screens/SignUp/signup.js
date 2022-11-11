@@ -303,7 +303,7 @@ const SignUp = ({ navigation }) => {
                   paddingTop: 15,
                 }}
               >
-                Alread have an account? Login
+                Already have an account? Login
               </Text>
             </TouchableWithoutFeedback>
           </View>

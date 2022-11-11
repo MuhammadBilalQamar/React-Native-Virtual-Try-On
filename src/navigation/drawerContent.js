@@ -4,7 +4,7 @@ import {
   View,
   ScrollView,
   Image,
-  I18nManager,
+  Alert,
   TouchableOpacity,
   Text,
 } from "react-native";
@@ -17,26 +17,35 @@ import styles from "./styles";
 import { BaseColor } from "@config";
 
 //ICONS
-import { Ionicons, Feather } from "@expo/vector-icons";
+import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 
 //REDUX
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { closeDrawer } from "@redux/reducers/drawer/action";
+
+// NAVIGATION
+import { navigationRef } from "@navigation";
 
 const items = [
   {
     id: 1,
     text: "Home",
-    Icon: (color) => <Ionicons name="home-outline" size={24} color={"black"} />,
+    Icon: (color) => <Ionicons name="home-outline" size={22} color={color} />,
   },
   {
     id: 2,
     text: "Cart",
-    Icon: (color) => <Ionicons name="cart-outline" size={24} color={"black"} />,
+    Icon: (color) => <Ionicons name="cart-outline" size={22} color={color} />,
   },
   {
     id: 3,
     text: "Profile",
-    Icon: (color) => <Feather name="user" size={24} color={"black"} />,
+    Icon: (color) => <Feather name="user" size={22} color={color} />,
+  },
+  {
+    id: 4,
+    text: "Contact",
+    Icon: (color) => <AntDesign name="contacts" size={22} color="black" />,
   },
 ];
 
@@ -56,14 +65,17 @@ const MenuItem = (props) => {
         borderLeftWidth: 13,
         marginHorizontal: 5,
         marginBottom: 10,
+        display: "flex",
+        flexDirection: "row",
       }}
     >
-      {/* {Icon()} */}
+      {<Icon />}
       <Text
         style={{
           zIndex: 999999,
-          fontWeight: "400",
-          fontSize: 20,
+          fontWeight: "600",
+          marginLeft: 5,
+          fontSize: 18,
           color: selectedRoute === text ? "white" : BaseColor.darkPrimaryColor,
         }}
       >
@@ -73,12 +85,25 @@ const MenuItem = (props) => {
   );
 };
 
-export const DrawerContent = (props) => {
+export const DrawerContent = () => {
   const userData = useSelector((state) => state.user);
-  const [route, setRoute] = useState("Home");
+  const [router, setRouter] = useState("Home");
+  const dispatch = useDispatch();
 
   const _handlePress = (item) => {
-    setRoute(item.text);
+    if (item.text === "Contact") {
+      dispatch(closeDrawer(false));
+      Alert.alert(
+        "Contant us",
+        "Email: virtualtryonclothing@gmail.com for any inquiries."
+      );
+    } else {
+      setRouter(item.text);
+      if (navigationRef?.current) {
+        dispatch(closeDrawer(false));
+        navigationRef?.current?.navigate(item.text);
+      }
+    }
   };
 
   return (
@@ -101,13 +126,44 @@ export const DrawerContent = (props) => {
             item={el}
             text={el.text}
             Icon={el.Icon}
-            selectedRoute={route}
+            selectedRoute={router}
             _handlePress={(item) => {
               _handlePress(item);
             }}
           />
         ))}
       </ScrollView>
+      <TouchableOpacity
+        onPress={() => {}}
+        style={{
+          backgroundColor: BaseColor.darkPrimaryColor,
+          padding: 15,
+          marginHorizontal: 5,
+          marginBottom: 10,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          borderRadius: 10,
+        }}
+      >
+        <Feather
+          name="log-out"
+          size={22}
+          color="white"
+          style={{ marginRight: 0 }}
+        />
+        <Text
+          style={{
+            zIndex: 999999,
+            fontWeight: "600",
+            marginLeft: 5,
+            fontSize: 18,
+            color: "white",
+          }}
+        >
+          Logout
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

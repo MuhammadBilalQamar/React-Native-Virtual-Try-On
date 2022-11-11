@@ -125,7 +125,7 @@ const Home = ({ navigation }) => {
               color: BaseColor.darkPrimaryColor,
             }}
           >
-            Wellcome : {userData?.username || "Loading..."}
+            Welcome : {userData?.username || "Loading..."}
           </Text>
           <View style={styles.container}>
             <FlatList
