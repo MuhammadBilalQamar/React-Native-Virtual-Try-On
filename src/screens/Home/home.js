@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   FlatList,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { GradientStyle, FullScreenLoader } from "@components";
@@ -38,7 +39,7 @@ const Home = ({ navigation }) => {
         navigation.navigate("Products");
         break;
       case "Upload Video":
-        pickVideo();
+        showInstructions();
         // navigation.navigate("ThreeDAvatar");
         break;
       case "Shopping Cart":
@@ -50,7 +51,22 @@ const Home = ({ navigation }) => {
   };
 
   const showInstructions = () => {
-    
+    Alert.alert(
+      "Instructions",
+      "Use back camera to record video in open T-pose position slowly spinning 360 degrees.And video must be less than 30 seconds.",
+      [
+        {
+          text: "Cancel",
+          onPress: () => {},
+          style: "cancel",
+        },
+        {
+          text: "Proceed",
+          onPress: () => pickVideo(),
+          style: "cancel",
+        },
+      ]
+    );
   };
 
   // this is native function for picking image from local mobile gallery
@@ -62,10 +78,14 @@ const Home = ({ navigation }) => {
       aspect: [4, 3],
       quality: 1,
     });
-    // console.log(result);
     if (!result.cancelled) {
-      const video = result.uri;
-      await uploadImage(video);
+      if (result.duration > 30000) {
+        Alert.alert("Error", "Video must be maximum 30sec long");
+        return;
+      } else {
+        const video = result.uri;
+        await uploadImage(video);
+      }
     }
   };
 
