@@ -47,7 +47,10 @@ const Home = ({ navigation }) => {
       default:
         break;
     }
-    // Alert.alert("Message", "Item clicked. " + item.name);
+  };
+
+  const showInstructions = () => {
+    
   };
 
   // this is native function for picking image from local mobile gallery

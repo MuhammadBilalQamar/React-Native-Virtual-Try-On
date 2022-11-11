@@ -19,6 +19,7 @@ import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 //REDUX
 import { useDispatch, useSelector } from "react-redux";
 import { closeDrawer } from "@redux/reducers/drawer/action";
+import { logoutUser } from "@redux/reducers/user/action";
 
 // NAVIGATION
 import { navigationRef } from "@navigation";
@@ -90,6 +91,7 @@ export const DrawerContent = () => {
   const [router, setRouter] = useState("Home");
   const dispatch = useDispatch();
 
+  // this will call when user will click on side drawer item
   const _handlePress = (item) => {
     if (item.text === "Contact") {
       dispatch(closeDrawer(false));
@@ -104,6 +106,28 @@ export const DrawerContent = () => {
         navigationRef?.current?.navigate(item.text);
       }
     }
+  };
+
+  // this is a logout function
+  const handleLogout = () => {
+    Alert.alert("Are you sure?", "do you want to logout?", [
+      {
+        text: "Cancel",
+        onPress: () => {},
+        style: "cancel",
+      },
+      {
+        text: "Yes",
+        onPress: () => removeLocalUser(),
+        style: "cancel",
+      },
+    ]);
+  };
+  // this will remove current user data once user will click on logout button
+  const removeLocalUser = async () => {
+    dispatch(closeDrawer(false));
+    dispatch(logoutUser());
+    if (navigationRef?.current) navigationRef?.current?.navigate("Login");
   };
 
   return (
@@ -134,7 +158,9 @@ export const DrawerContent = () => {
         ))}
       </ScrollView>
       <TouchableOpacity
-        onPress={() => {}}
+        onPress={() => {
+          handleLogout();
+        }}
         style={{
           backgroundColor: BaseColor.darkPrimaryColor,
           padding: 15,

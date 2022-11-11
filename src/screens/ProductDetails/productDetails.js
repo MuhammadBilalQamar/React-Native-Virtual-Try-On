@@ -76,7 +76,7 @@ const ProductDetails = ({ navigation, route }) => {
                   {selectedProduct?.decription}
                 </Text>
               </View>
-              <View style={styles.starContainer}>
+              {/* <View style={styles.starContainer}>
                 <Image
                   style={styles.star}
                   source={{
@@ -107,7 +107,7 @@ const ProductDetails = ({ navigation, route }) => {
                     uri: "https://img.icons8.com/color/40/000000/star.png",
                   }}
                 />
-              </View>
+              </View> */}
               <View style={styles.contentSize}>
                 {selectedProduct?.sizes?.map((item, index) => {
                   return (
