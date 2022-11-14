@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { closeDrawer } from "@redux/reducers/drawer/action";
 import { DrawerContent } from "./drawerContent";
 
-const MenuItem = (props) => {
+const MenuOverlay = (props) => {
   let drawer = createRef(null);
   const isOpenDrawer = useSelector((state) => state.drawer.isOpen);
   const dispatch = useDispatch();
@@ -36,4 +36,4 @@ const MenuItem = (props) => {
   );
 };
 
-export default MenuItem;
+export default MenuOverlay;
