@@ -13,6 +13,9 @@ import { GradientStyle } from "@components";
 //UTILITIES
 import { BaseColor } from "@config";
 
+//CONSTANTS
+import { MESSAGES } from "@constants/constants";
+
 //ICONS
 import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 
@@ -97,7 +100,7 @@ export const DrawerContent = () => {
       dispatch(closeDrawer(false));
       Alert.alert(
         "Contant us",
-        "Email: virtualtryonclothing@gmail.com for any inquiries."
+        MESSAGES.CONTANT_US
       );
     } else {
       if (navigationRef?.current) {
@@ -110,7 +113,7 @@ export const DrawerContent = () => {
 
   // this is a logout function
   const handleLogout = () => {
-    Alert.alert("Are you sure?", "do you want to logout?", [
+    Alert.alert("Are you sure!", MESSAGES.LOGOUT_CONFIRMATION, [
       {
         text: "Cancel",
         onPress: () => {},

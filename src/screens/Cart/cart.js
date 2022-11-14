@@ -17,6 +17,9 @@ import { Feather } from "@expo/vector-icons";
 import { BaseColor } from "@config";
 import { removeObjectFromArray } from "@utils";
 
+//CONSTANTS
+import { MESSAGES } from "@constants/constants";
+
 //STYLES
 import styles from "./cart_styles";
 const { parentContainer } = styles;
@@ -43,7 +46,7 @@ const Cart = ({ navigation }) => {
 
   // this function will all when user clicks on checkout button
   const handleCheckOut = () => {
-    Alert.alert("Are you sure", `do you want to checkout?`, [
+    Alert.alert("Are you sure!", MESSAGES.CHECKOUT_CONFIRMATION, [
       {
         text: "Cancel",
         onPress: () => {},
@@ -55,7 +58,7 @@ const Cart = ({ navigation }) => {
           dispatch(addCartItem([]));
           Alert.alert(
             "Congratulations",
-            "Your order has been successfully placed!"
+            MESSAGES.ORDER_SUCCESS
           );
         },
         style: "cancel",
@@ -67,7 +70,7 @@ const Cart = ({ navigation }) => {
   const handleDelete = (product) => {
     const { id } = product;
     Alert.alert(
-      "Are you sure",
+      "Are you sure!",
       `do you want to remove ${product?.title} from cart?`,
       [
         {

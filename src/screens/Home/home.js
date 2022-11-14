@@ -16,7 +16,7 @@ import * as ImagePicker from "expo-image-picker";
 import { BaseColor, storage } from "@config";
 
 //CONSTANTS
-import { HOME_ITEMS } from "@constants/constants";
+import { HOME_ITEMS, MESSAGES } from "@constants/constants";
 
 //STYLES
 import styles from "./home_styles";
@@ -53,7 +53,7 @@ const Home = ({ navigation }) => {
   const showInstructions = () => {
     Alert.alert(
       "Instructions",
-      "Use back camera to record video in open T-pose position slowly spinning 360 degrees.And video must be less than 30 seconds.",
+      MESSAGES.VIDEO_INSTRUCTION,
       [
         {
           text: "Cancel",
@@ -80,7 +80,7 @@ const Home = ({ navigation }) => {
     });
     if (!result.cancelled) {
       if (result.duration > 30000) {
-        Alert.alert("Error", "Video must be maximum 30sec long");
+        Alert.alert("Error", MESSAGES.VIDEO_LIMIT_ERROR);
         return;
       } else {
         const video = result.uri;
@@ -114,7 +114,7 @@ const Home = ({ navigation }) => {
       (error) => {
         setIsLoading(false);
         setUploadProgress(0);
-        alert("Video upload failed due to network connectivity issue!");
+        alert(MESSAGES.VIDEO_UPLOAD_FAIL_ERROR);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {

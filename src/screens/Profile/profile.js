@@ -27,6 +27,9 @@ import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 //UTILITIES
 import { BaseColor, storage } from "@config";
 
+//CONSTANTS
+import { MESSAGES } from "@constants/constants";
+
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { logoutUser, saveUser } from "@redux/reducers/user/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -89,7 +92,7 @@ const MyProfile = ({ navigation }) => {
       (error) => {
         setIsLoading(false);
         setUploadProgress(0);
-        alert("Image upload failed due to network connectivity issue!");
+        alert(MESSAGES.IMAGE_UPLOAD_FAIL_ERROR);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -117,7 +120,7 @@ const MyProfile = ({ navigation }) => {
 
   // this is a logout function
   const handleLogout = () => {
-    Alert.alert("Are you sure?", "do you want to logout?", [
+    Alert.alert("Are you sure!", MESSAGES.LOGOUT_CONFIRMATION, [
       {
         text: "Cancel",
         onPress: () => {},
@@ -141,7 +144,7 @@ const MyProfile = ({ navigation }) => {
       navigation.navigate("Login");
     } catch (error) {
       console.log("error----", error);
-      alert("something went wrong");
+      alert(MESSAGES.SOMETHING_WRONG);
     }
   };
 
@@ -160,7 +163,7 @@ const MyProfile = ({ navigation }) => {
       if (newUser) {
         dispatch(saveUser(newUser));
         setIsLoading(false);
-        alert("user updated successfully");
+        alert(MESSAGES.USER_UPADETED_SUCCESSFULLY);
       }
     }
   };

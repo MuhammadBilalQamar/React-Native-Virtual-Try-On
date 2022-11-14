@@ -15,6 +15,9 @@ import React, { useMemo, useState } from "react";
 import { BaseColor, Images, auth } from "@config";
 import { useKeyPad } from "@utils";
 
+//CONSTANTS
+import { MESSAGES } from "@constants/constants";
+
 //STYLES
 import styles from "./signup_styles";
 import {
@@ -76,9 +79,7 @@ const SignUp = ({ navigation }) => {
         const user = userCredential.user;
         const uid = user.uid;
         writeUserData(uid, userName, "customer", email);
-        alert(
-          "Congratulations your acccout has been created successfully! Do login and continue"
-        );
+        alert(MESSAGES.USER_REGISTER_SUCCESSFULLY);
         setEmail("");
         setUserName("");
         setPassword("");

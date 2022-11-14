@@ -14,6 +14,9 @@ import { GradientStyle } from "@components";
 import { BaseColor } from "@config";
 import { removeObjectFromArray } from "@utils";
 
+//CONSTANTS
+import { MESSAGES } from "@constants/constants";
+
 // REDUX ELEMENTS FOR LOCAL DATA STORAGE
 import { useSelector, useDispatch } from "react-redux";
 import { addCartItem } from "@redux/reducers/cart/action";
@@ -46,7 +49,7 @@ const ProductDetails = ({ navigation, route }) => {
       cartItems.push(product);
       dispatch(addCartItem(cartItems));
       setIsLoading(!isLoading);
-      alert(`${product?.title} is successfully added to the cart`);
+      alert(`${product?.title} ${MESSAGES.PRODUCT_ADDED_TO_CART}`);
     }
   };
 
@@ -55,7 +58,7 @@ const ProductDetails = ({ navigation, route }) => {
     const { id } = product;
     const newCart = removeObjectFromArray(cartItems, "id", id);
     dispatch(addCartItem(newCart));
-    alert(`${product?.title} is removed from the cart`);
+    alert(`${product?.title} ${MESSAGES.PRODUCT_REMOVED_FROM_CART}`);
   };
 
   // this is the UI renderation part

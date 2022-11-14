@@ -1,3 +1,23 @@
+export const MESSAGES = {
+  VIDEO_INSTRUCTION:
+    "Use back camera to record video in open T-pose position slowly spinning 360 degrees.Video must be less than 30 seconds.",
+  CONTANT_US: "Email: virtualtryonclothing@gmail.com for any inquiries.",
+  LOGOUT_CONFIRMATION: "Do you want to logout?",
+  CHECKOUT_CONFIRMATION: "Do you want to checkout?",
+  ORDER_SUCCESS: "Your order has been successfully placed!",
+  VIDEO_LIMIT_ERROR: "Video must be maximum 30sec long",
+  VIDEO_UPLOAD_FAIL_ERROR:
+    "Video upload failed due to network connectivity issue!",
+  PRODUCT_ADDED_TO_CART: "is successfully added to the cart",
+  PRODUCT_REMOVED_FROM_CART: "is removed from the cart",
+  IMAGE_UPLOAD_FAIL_ERROR:
+    "Image upload failed due to network connectivity issue!",
+  SOMETHING_WRONG: "something went wrong!",
+  USER_UPADETED_SUCCESSFULLY: "user updated successfully",
+  USER_REGISTER_SUCCESSFULLY:
+    "Congratulations your acccout has been created successfully! Do login and continue",
+};
+
 export const ROUTER = {
   LOGIN: "Login",
   SIGNUP: "SignUp",
