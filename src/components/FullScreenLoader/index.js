@@ -5,10 +5,10 @@ import { BaseColor } from "@config";
 export default function FullScreenLoader({
   show,
   setShow,
-  dwonload = false,
   showProgress = false,
   progress = 0,
   text,
+  uploading = false,
 }) {
   return (
     <Modal
@@ -41,7 +41,7 @@ export default function FullScreenLoader({
             </Text>
           </View>
         )}
-        {dwonload && <Text style={{ color: "white" }}>Downloading...</Text>}
+        {uploading && <Text style={{ color: "white" }}>video uploading please wait...</Text>}
       </View>
     </Modal>
   );

@@ -31,7 +31,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 const Home = ({ navigation }) => {
   const userData = useSelector((state) => state.user);
   const [isLoading, setIsLoading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadProgress, setUploadProgress] = useState("");
 
   const clickEventListener = (item) => {
     switch (item.name) {
@@ -101,7 +101,7 @@ const Home = ({ navigation }) => {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(Math.round(progress) || 0);
+        // setUploadProgress(Math.round(progress) || 0);
         switch (snapshot.state) {
           case "paused":
             // console.log("Upload is paused");
@@ -137,7 +137,8 @@ const Home = ({ navigation }) => {
             text={"Loading"}
             setShow={() => {}}
             progress={uploadProgress}
-            showProgress={true}
+            uploading={true}
+            // showProgress={true}
           />
           <Text
             style={{
