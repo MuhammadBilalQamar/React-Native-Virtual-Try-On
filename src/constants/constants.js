@@ -1,7 +1,7 @@
 export const MESSAGES = {
   VIDEO_INSTRUCTION:
     "Use back camera to record video in open T-pose position slowly spinning 360 degrees.Video must be less than 30 seconds.",
-  CONTANT_US: "Email: virtualtryonclothing@gmail.com for any inquiries.",
+  CONTACT_US: "Email: virtualtryonclothing@gmail.com for any inquiries.",
   LOGOUT_CONFIRMATION: "Do you want to logout?",
   CHECKOUT_CONFIRMATION: "Do you want to checkout?",
   ORDER_SUCCESS: "Your order has been successfully placed!",

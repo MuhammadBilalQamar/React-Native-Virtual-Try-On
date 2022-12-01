@@ -100,7 +100,7 @@ export const DrawerContent = () => {
       dispatch(closeDrawer(false));
       Alert.alert(
         "Contant us",
-        MESSAGES.CONTANT_US
+        MESSAGES.CONTACT_US
       );
     } else {
       if (navigationRef?.current) {
