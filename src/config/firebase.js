@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
+import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
@@ -7,6 +7,7 @@ import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyBeCQMMLWJEt0AziJd_GlLT5v6P-nQUcUs",
   authDomain: "virtualtryonclothing-e26f4.firebaseapp.com",
+  databaseURL: "https://virtualtryonclothing-e26f4-default-rtdb.firebaseio.com",
   projectId: "virtualtryonclothing-e26f4",
   storageBucket: "virtualtryonclothing-e26f4.appspot.com",
   messagingSenderId: "338582404336",
